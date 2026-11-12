@@ -141,6 +141,8 @@ AC04: Đúng sai không chỉ thể hiện bằng màu mà có biểu tượng v
 
 #### US1.3 Luyện nói và nghe phù hợp hoàn cảnh
 
+User Story: Là người học, tôi muốn tạm tắt bài nói, bài nghe khi không tiện để vẫn học được ở nơi đông người.
+
 AC01: Bài nói lặp lại: nghe mẫu, giữ nút để nói, app chấm đạt hoặc chưa đạt.
 
 AC02: Mỗi bài nói và nghe có nút "Không tiện nói lúc này" hoặc "Không tiện nghe lúc này"; chọn thì tắt dạng đó trong 15 phút.
@@ -151,6 +153,8 @@ AC03: Chưa cấp quyền micro → giải thích lý do rồi mới hỏi quy�
 
 #### US2.1 Thoát giữa bài
 
+User Story: Là người học, tôi muốn thoát giữa bài mà không mất tiến độ để không ngại bắt đầu bài.
+
 AC01: Bấm thoát → hỏi xác nhận, nói rõ tiến độ được giữ.
 
 AC02: Quay lại bài trong 24 giờ → học tiếp từ câu đang dừng.
@@ -160,6 +164,8 @@ AC03: Cuộc gọi đến, app xuống nền → tạm dừng bài, không tính
 ### UC3. Kết thúc bài
 
 #### US3.1 Xem kết quả bài
+
+User Story: Là người học, tôi muốn xem kết quả sau mỗi bài để biết mình làm tốt đến đâu và học gì tiếp theo.
 
 AC01: Màn kết thúc hiện độ chính xác lần đầu, thời gian học, số từ mới.
 

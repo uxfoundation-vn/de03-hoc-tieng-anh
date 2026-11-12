@@ -128,6 +128,8 @@ AC05: Còn hơn 20 từ → kết thúc phiên có nút "Ôn tiếp {n} từ".
 
 #### US1.2 Ôn một từ cụ thể
 
+User Story: Là người học, tôi muốn ôn ngay một từ cụ thể để củng cố từ mình thấy chưa chắc.
+
 AC01: Từ sổ từ vựng (TN04), chọn "Ôn từ này" để ôn ngay, không cần chờ đến hạn.
 
 ### UC2. Chuỗi ngày học
@@ -143,6 +145,8 @@ AC02: Màn chuỗi hiện lịch tháng: ngày đạt mục tiêu, ngày dùng b
 AC03: Mỗi 7 ngày chuỗi liên tiếp được thêm 1 ngày bảo lưu, tối đa giữ 2.
 
 #### US2.2 Lỡ một ngày
+
+User Story: Là người học, tôi muốn không mất chuỗi chỉ vì lỡ một ngày để không nản.
 
 AC01: Lỡ ngày và còn bảo lưu → tự dùng, chuỗi giữ nguyên; lần mở app tiếp theo báo đã dùng bảo lưu.
 

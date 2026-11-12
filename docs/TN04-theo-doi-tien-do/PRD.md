@@ -122,6 +122,8 @@ AC04: Chuyển tuần trước, sau; không chuyển được sang tuần tươn
 
 #### US1.2 Xem tiến độ trình độ
 
+User Story: Là người học, tôi muốn biết còn bao xa tới trình độ tiếp theo để có mục tiêu trung hạn.
+
 AC01: Hiện trình độ hiện tại, số chặng đã xong trên tổng, thanh tiến độ.
 
 AC02: Hoàn thành mọi chặng → gợi ý làm bài kiểm tra để lên trình độ, hoặc học tiếp trình độ kế tiếp.
@@ -139,6 +141,8 @@ AC02: Lọc theo mức nhớ; tìm theo từ tiếng Anh hoặc nghĩa tiếng V
 AC03: Chưa học từ nào → màn trống mời học bài đầu tiên.
 
 #### US2.2 Xem chi tiết và ôn một từ
+
+User Story: Là người học, tôi muốn xem chi tiết và ôn lại một từ đã học để tra lại khi cần.
 
 AC01: Chi tiết từ hiện từ, phiên âm, nút nghe, nghĩa, câu ví dụ, bài học chứa từ, mức nhớ, ngày ôn tiếp theo.
 

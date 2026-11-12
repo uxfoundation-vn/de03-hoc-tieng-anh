@@ -142,6 +142,8 @@ AC05: Câu nghe không phát được âm thanh → cho bỏ qua câu đó mà k
 
 #### US1.3 Xem kết quả và đặt mục tiêu
 
+User Story: Là người học, tôi muốn hiểu trình độ của mình và đặt mục tiêu học mỗi ngày để có kỳ vọng đúng và cam kết vừa sức.
+
 AC01: Kết quả hiện trình độ, một câu mô tả "Bạn có thể…", và số chặng trong lộ trình.
 
 AC02: Cho chọn bắt đầu ở trình độ thấp hơn một bậc nếu thấy quá sức.
@@ -165,6 +167,8 @@ AC03: Mở app là cuộn tới bài đang mở tiếp theo.
 AC04: Các chặng dưới trình độ được xếp hiện "Đã vượt qua", vẫn vào học lại được.
 
 #### US2.2 Đổi trình độ
+
+User Story: Là người học, tôi muốn làm lại bài kiểm tra để đổi trình độ khi lộ trình không còn vừa sức.
 
 AC01: Làm lại bài kiểm tra từ Hồ sơ; nếu chưa đủ 30 ngày thì báo ngày được làm lại.
 
