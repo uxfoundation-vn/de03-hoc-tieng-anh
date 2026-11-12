@@ -48,6 +48,7 @@ stateDiagram-v2
   DANG_TAI --> CO_DU_LIEU : Tuần có hoạt động
   CO_DU_LIEU --> DANG_TAI : Đổi tuần
   TUAN_TRONG --> DANG_TAI : Đổi tuần
+  CHUA_CO_HOAT_DONG --> DANG_TAI : Học bài đầu tiên
   DANG_TAI --> LOI : Tải thất bại
   LOI --> DANG_TAI : Thử lại
 ```

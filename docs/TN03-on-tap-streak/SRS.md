@@ -30,7 +30,7 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày `[giả định]`. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau |
-| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1, đến hạn ngày mai, và hỏi lại cuối phiên. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
+| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1 (đang ở mức 0 thì giữ mức 0 `[giả định]`), đến hạn ngày mai, và hỏi lại cuối phiên. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
 | BR-25 | **Từ cần ôn hôm nay** = từ có đến hạn ≤ hôm nay. **Phiên ôn** lấy tối đa 20 từ, ưu tiên từ quá hạn lâu nhất, sau đó mức thấp hơn trước |
 | BR-26 | **Dạng bài ôn**: chọn ngẫu nhiên trong `CHON_NGHIA`, `NGHE_CHON`, điền từ còn thiếu; áp dụng tạm tắt nghe của BR-18 |
 | BR-27 | **Đạt mục tiêu ngày** khi tổng thời gian học (bài học + ôn tập, BR-21) trong ngày ≥ mục tiêu ngày. Ngày tính theo múi giờ thiết bị, từ 00:00 đến 23:59 |
@@ -52,13 +52,16 @@ stateDiagram-v2
   MUC_2 --> MUC_3 : Đúng
   MUC_3 --> MUC_4 : Đúng
   MUC_4 --> MUC_5 : Đúng
-  MUC_5 --> DA_THUOC : Đúng
+  MUC_5 --> MUC_6 : Đúng
+  MUC_6 --> DA_THUOC : Đúng
   DA_THUOC --> DA_THUOC : Đúng, ôn lại sau 60 ngày
-  MUC_0 --> MUC_1 : Sai, đến hạn ngày mai
+  MUC_0 --> MUC_0 : Sai, đến hạn ngày mai
+  MUC_1 --> MUC_1 : Sai, đến hạn ngày mai
   MUC_2 --> MUC_1 : Sai
   MUC_3 --> MUC_1 : Sai
   MUC_4 --> MUC_1 : Sai
   MUC_5 --> MUC_1 : Sai
+  MUC_6 --> MUC_1 : Sai
   DA_THUOC --> MUC_1 : Sai
 ```
 
