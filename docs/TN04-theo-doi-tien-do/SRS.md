@@ -219,6 +219,15 @@ sequenceDiagram
   end
 ```
 
+**Map lỗi → thông báo** `[giả định]`
+
+| **Nhóm lỗi** | **Message** |
+| --- | --- |
+| Không tải được tiến độ, sổ từ (mất mạng, máy chủ lỗi) | Trạng thái `LOI` ở mục 4.1: màn lỗi kèm nút Thử lại |
+| Chưa có dữ liệu học | MSG-27 |
+| Tuần đang xem không có hoạt động | MSG-28 |
+| Chưa đủ điều kiện lên trình độ | Ẩn nút lên trình độ; không báo lỗi |
+
 ## 9. Danh sách thông báo
 
 | **ID** | **Nơi hiện** | **Nội dung (VI)** |

@@ -274,6 +274,16 @@ sequenceDiagram
   end
 ```
 
+**Map lỗi → thông báo** `[giả định]`
+
+| **Nhóm lỗi** | **Message** |
+| --- | --- |
+| Không tải được bài kiểm tra (mất mạng, máy chủ lỗi) | MSG-01 |
+| Gửi bài thất bại do mất kết nối | MSG-04, tự gửi lại khi có mạng |
+| Chưa đủ điều kiện làm lại bài kiểm tra | MSG-08 |
+| Mở bài chưa được mở khoá | MSG-07 |
+| Lưu hồ sơ, mục tiêu thất bại | Thông báo lỗi chung của app (ngoài bộ MSG của SRS này), cho thử lại |
+
 ## 9. Danh sách thông báo
 
 | **ID** | **Nơi hiện** | **Nội dung (VI)** |

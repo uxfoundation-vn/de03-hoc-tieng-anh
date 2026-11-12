@@ -303,6 +303,15 @@ sequenceDiagram
 | DailyProgress | profile_id, date, minutes, goal_minutes, status |
 | Streak | profile_id, current, longest, freezes (0–2), timezone |
 
+**Map lỗi → thông báo** `[giả định]`
+
+| **Nhóm lỗi** | **Message** |
+| --- | --- |
+| Không lấy được danh sách từ cần ôn | Thông báo lỗi chung của app (ngoài bộ MSG của SRS này), cho thử lại |
+| Mất mạng khi gửi kết quả ôn | Lưu trên máy, tự gửi lại khi có mạng; không chặn người học |
+| Quyền thông báo của hệ điều hành đang tắt | MSG-25 |
+| Lưu cài đặt nhắc học thất bại | Thông báo lỗi chung của app (ngoài bộ MSG của SRS này), cho thử lại; giữ giá trị cũ |
+
 ## 9. Danh sách thông báo
 
 | **ID** | **Nơi hiện** | **Nội dung (VI)** |

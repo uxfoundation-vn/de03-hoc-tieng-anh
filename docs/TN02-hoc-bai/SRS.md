@@ -287,6 +287,17 @@ sequenceDiagram
   App->>U: SCR-07
 ```
 
+**Map lỗi → thông báo** `[giả định]`
+
+| **Nhóm lỗi** | **Message** |
+| --- | --- |
+| Không tải được bài học | MSG-09 |
+| Không phát được âm thanh | MSG-10 |
+| Không nhận được giọng nói, nhận dạng quá thời gian | MSG-11 |
+| Chưa có quyền micro | MSG-13 |
+| Mất mạng khi gửi kết quả bài | MSG-18, gửi lại khi có mạng |
+| Lỗi máy chủ khác | Thông báo lỗi chung của app (ngoài bộ MSG của SRS này), cho thử lại |
+
 ## 9. Danh sách thông báo
 
 | **ID** | **Nơi hiện** | **Nội dung (VI)** |
