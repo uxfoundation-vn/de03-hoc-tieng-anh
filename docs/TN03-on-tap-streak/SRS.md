@@ -230,7 +230,7 @@ flowchart TD
 | 4 | Hệ thống | Lên lịch nhắc hằng ngày trên máy |
 | 5 | Hệ thống | Đến giờ nhắc mà hôm nay chưa đạt mục tiêu → gửi MSG-26 |
 | 6 | Người học | Chạm thông báo |
-| 7 | Hệ thống | Có từ cần ôn → mở phiên ôn (UC-06); không có → mở bài đang mở (SRS TN02) |
+| 7 | Hệ thống | Có từ cần ôn → mở phiên ôn (UC-06); không có → mở bài `DANG_MO` (SRS TN02) |
 
 **Luồng thay thế**
 
