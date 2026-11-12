@@ -274,7 +274,7 @@ sequenceDiagram
   end
 ```
 
-**Map lỗi → thông báo** `[giả định]`
+**Map lỗi → thông báo**
 
 | **Nhóm lỗi** | **Message** |
 | --- | --- |
@@ -307,5 +307,6 @@ Bản EN: `[chờ bổ sung]`.
 | Offline | Bài kiểm tra chạy được khi mất mạng sau khi đã tải; lộ trình có bản lưu để xem ngoại tuyến |
 | Âm thanh | Âm thanh câu nghe tải trước cùng bộ câu hỏi; tôn trọng chế độ im lặng, nhắc bật tiếng khi vào câu nghe |
 | Bảo mật | Hồ sơ tạm chỉ lưu trên máy; kết quả kiểm tra gắn với tài khoản sau khi đăng ký |
+| Log / audit | Mỗi lần làm bài kiểm tra: thời điểm, số câu, trình độ được xếp, lựa chọn hạ bậc; mỗi lần đổi mục tiêu ngày |
 | Tracking | Từng bước onboarding, chọn điểm xuất phát, số câu đã làm, thoát giữa chừng (ở câu nào), kết quả, hạ bậc, mục tiêu ngày, cấp quyền thông báo |
 | Accessibility | Đáp án có vùng chạm ≥ 44 pt; câu nghe có phương án bỏ qua; hỗ trợ cỡ chữ hệ thống; trạng thái bài học có biểu tượng và nhãn, không chỉ dựa vào màu |

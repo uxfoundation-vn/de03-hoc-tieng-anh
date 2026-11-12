@@ -30,7 +30,7 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày `[giả định]`. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau |
-| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1 (đang ở mức 0 thì giữ mức 0 `[giả định]`), đến hạn ngày mai, và hỏi lại cuối phiên. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
+| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1 (đang ở mức 0 thì giữ mức 0), đến hạn ngày mai, và hỏi lại cuối phiên. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
 | BR-25 | **Từ cần ôn hôm nay** = từ có đến hạn ≤ hôm nay. **Phiên ôn** lấy tối đa 20 từ, ưu tiên từ quá hạn lâu nhất, sau đó mức thấp hơn trước |
 | BR-26 | **Dạng bài ôn**: chọn ngẫu nhiên trong `CHON_NGHIA`, `NGHE_CHON`, điền từ còn thiếu; áp dụng tạm tắt nghe của BR-18 |
 | BR-27 | **Đạt mục tiêu ngày** khi tổng thời gian học (bài học + ôn tập, BR-21) trong ngày ≥ mục tiêu ngày. Ngày tính theo múi giờ thiết bị, từ 00:00 đến 23:59 |
@@ -220,6 +220,31 @@ flowchart TD
   L -->|Không| N["Mở bài DANG_MO, xem TN02"]
 ```
 
+**Luồng chính**
+
+| **Bước** | **Actor** | **Mô tả** |
+| --- | --- | --- |
+| 1 | Người học | Mở **SCR-10** Cài đặt nhắc học |
+| 2 | Hệ thống | Kiểm tra quyền thông báo; đã cho phép → hiện công tắc nhắc và ô chọn giờ |
+| 3 | Người học | Bật nhắc, chọn giờ |
+| 4 | Hệ thống | Lên lịch nhắc hằng ngày trên máy |
+| 5 | Hệ thống | Đến giờ nhắc mà hôm nay chưa đạt mục tiêu → gửi MSG-26 |
+| 6 | Người học | Chạm thông báo |
+| 7 | Hệ thống | Có từ cần ôn → mở phiên ôn (UC-06); không có → mở bài đang mở (SRS TN02) |
+
+**Luồng thay thế**
+
+| **Mã** | **Điều kiện** | **Xử lý** |
+| --- | --- | --- |
+| A1 | Chưa từng hỏi quyền thông báo | Giải thích lý do trước, rồi hệ điều hành hỏi quyền; cho phép → bước 3 |
+| A2 | Hôm nay đã đạt mục tiêu trước giờ nhắc | Lịch nhắc của ngày bị huỷ, không gửi |
+
+**Luồng lỗi**
+
+| **Mã** | **Điều kiện** | **Xử lý** |
+| --- | --- | --- |
+| E1 | Quyền thông báo đã tắt hoặc bị từ chối | MSG-25 kèm nút Mở Cài đặt hệ thống; công tắc nhắc giữ tắt |
+
 ## 6. Điểm vào
 
 | **Điểm vào** | **Dẫn tới** | **Ghi chú** |
@@ -303,7 +328,7 @@ sequenceDiagram
 | DailyProgress | profile_id, date, minutes, goal_minutes, status |
 | Streak | profile_id, current, longest, freezes (0–2), timezone |
 
-**Map lỗi → thông báo** `[giả định]`
+**Map lỗi → thông báo**
 
 | **Nhóm lỗi** | **Message** |
 | --- | --- |
@@ -335,5 +360,7 @@ Bản EN: `[chờ bổ sung]`.
 | Đồng bộ | Chuỗi tính trên máy chủ là nguồn đúng; app hiện số tạm khi ngoại tuyến và đồng bộ lại khi có mạng |
 | Thời gian | Không dựa vào giờ thiết bị để chốt ngày; máy chủ dùng múi giờ đã lưu (BR-32) |
 | Thông báo | Tối đa 1 thông báo nhắc học mỗi ngày; không gửi 22:00–07:00 nếu người học không tự chọn giờ đó |
+| Bảo mật | Kết quả ôn và chuỗi ngày học chỉ người học thấy; giờ nhắc lưu theo tài khoản, không chia sẻ cho bên thứ ba |
+| Log / audit | Mỗi lần chốt ngày: đạt mục tiêu hay không, chuỗi trước và sau, bảo lưu đã dùng; mỗi lần đổi múi giờ, đổi giờ nhắc |
 | Tracking | Bắt đầu và kết thúc phiên ôn (số từ, tỉ lệ đúng); chuỗi tăng; dùng bảo lưu; mất chuỗi; bật, tắt nhắc; giờ nhắc; thông báo gửi, mở |
 | Accessibility | Lịch chuỗi có nhãn chữ cho từng trạng thái ngày; số chuỗi được trình đọc màn hình đọc đầy đủ; không dùng hiệu ứng nhấp nháy |

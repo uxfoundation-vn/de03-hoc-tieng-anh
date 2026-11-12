@@ -209,6 +209,25 @@ flowchart TD
   J --> K["Quay lại, hiện đúng câu đang làm"]
 ```
 
+**Luồng chính**
+
+| **Bước** | **Actor** | **Mô tả** |
+| --- | --- | --- |
+| 1 | Người học | Bấm ✕ khi đang trong bài |
+| 2 | Hệ thống | Hiện MSG-15 hỏi xác nhận, nói rõ tiến độ được giữ 24 giờ |
+| 3 | Người học | Chọn Thoát |
+| 4 | Hệ thống | Lưu hàng đợi câu hỏi, kết quả, thời gian đã học (BR-20) |
+| 5 | Hệ thống | Về lộ trình; bài hiện "Đang học dở" |
+| 6 | Người học | Mở lại bài trong 24 giờ → học tiếp từ câu đang dừng |
+
+**Luồng thay thế**
+
+| **Mã** | **Điều kiện** | **Xử lý** |
+| --- | --- | --- |
+| A1 | Chọn Học tiếp ở MSG-15 | Ở lại bài, không lưu gì thêm |
+| A2 | Quay lại sau 24 giờ | Bắt đầu lại bài từ đầu |
+| A3 | App xuống nền hoặc có cuộc gọi đến | Tạm dừng bài, ngừng đếm giờ; quay lại hiện đúng câu đang làm |
+
 ## 6. Điểm vào
 
 | **Điểm vào** | **Dẫn tới** | **Ghi chú** |
@@ -287,7 +306,7 @@ sequenceDiagram
   App->>U: SCR-07
 ```
 
-**Map lỗi → thông báo** `[giả định]`
+**Map lỗi → thông báo**
 
 | **Nhóm lỗi** | **Message** |
 | --- | --- |
@@ -323,5 +342,6 @@ Bản EN: `[chờ bổ sung]`.
 | Offline | Sau khi tải, bài học làm được khi mất mạng (trừ bài nói); kết quả gửi lại sau |
 | Quyền riêng tư | Bản ghi âm chỉ dùng để nhận dạng, không lưu trên máy chủ; nói rõ ở MSG-16 |
 | Âm thanh | Tôn trọng chế độ im lặng; âm thanh phản hồi tắt được trong Cài đặt |
+| Log / audit | Mỗi bài: thời điểm bắt đầu, kết thúc, độ chính xác, số câu bỏ qua; lỗi phát âm thanh và lỗi nhận dạng giọng nói kèm mã lỗi |
 | Tracking | Bắt đầu, thoát (ở câu nào), hoàn thành; từng câu: dạng, đúng sai lần đầu, số lần hỏi lại; tạm tắt nói, nghe; quyền micro; báo lỗi nội dung |
 | Accessibility | Đúng sai có biểu tượng và chữ; `GHEP_CAP` và `SAP_XEP_CAU` dùng chạm, không bắt buộc kéo thả; nút nghe và micro có nhãn đọc màn hình; tôn trọng cài đặt giảm chuyển động |

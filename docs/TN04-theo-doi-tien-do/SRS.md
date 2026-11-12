@@ -219,7 +219,7 @@ sequenceDiagram
   end
 ```
 
-**Map lỗi → thông báo** `[giả định]`
+**Map lỗi → thông báo**
 
 | **Nhóm lỗi** | **Message** |
 | --- | --- |
@@ -246,5 +246,7 @@ Bản EN: `[chờ bổ sung]`.
 | Hiệu năng | **SCR-11** hiện ≤ 1,5 giây; tìm trong sổ từ ≤ 500 ms với 5.000 từ |
 | Nhất quán | Phút học ở mọi màn lấy từ cùng một nguồn (DailyProgress) |
 | Offline | Hiện số liệu và sổ từ đã lưu gần nhất khi mất mạng |
+| Bảo mật | Tiến độ và sổ từ chỉ người học thấy; API chỉ trả dữ liệu của tài khoản đang đăng nhập |
+| Log / audit | Mỗi lần lên trình độ: trình độ cũ, mới, thời điểm; lỗi tải dữ liệu kèm mã lỗi |
 | Tracking | Mở Tiến độ, đổi tuần, chạm cột, mở sổ từ, lọc, tìm (có / không kết quả), xem chi tiết từ, ôn từ này, chọn lên trình độ |
 | Accessibility | Biểu đồ có bản thay thế dạng danh sách "{thứ}: {n} phút"; mức nhớ có nhãn chữ; tăng giảm có chữ kèm mũi tên |
