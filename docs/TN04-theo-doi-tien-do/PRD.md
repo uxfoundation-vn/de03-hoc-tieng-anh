@@ -165,13 +165,13 @@ AC02: "Ôn từ này" mở phiên ôn chỉ gồm từ đó (TN03).
 | Số liệu lệch giữa các màn | Phút học ở **SCR-07**, **SCR-09**, **SCR-11** khác nhau | Một nguồn tính duy nhất (DailyProgress) |
 | Tuần ít học gây nản | Biểu đồ trống | Lời lẽ khích lệ, nêu ngày gần nhất có học |
 | Sổ từ lớn | Hàng nghìn từ, cuộn chậm | Tải dần, tìm kiếm trên máy chủ |
-| Lên trình độ không qua kiểm tra | Học không đủ vững | Gợi ý kiểm tra; cho tự lên nếu người học muốn `[cần chốt]` |
+| Lên trình độ không qua kiểm tra | Học không đủ vững | Gợi ý kiểm tra; cho tự lên nếu người học muốn (SRS BR-38) |
 
 ## 10. Câu hỏi mở
 
 > Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
-- Hoàn thành trình độ có bắt buộc làm kiểm tra mới được lên không?
+- Hoàn thành trình độ có bắt buộc làm kiểm tra mới được lên không? → **Đã chốt:** Không bắt buộc. Người học chọn làm kiểm tra hoặc tự lên trình độ kế tiếp (SRS BR-38).
 - Có cần thống kê theo kỹ năng (nghe, nói) ở MVP?
 - Sổ từ có cho người học tự đánh dấu "Đã biết" để bỏ qua ôn không? → **Đã chốt:** Có. Từ "Đã biết" không vào phiên ôn, bỏ đánh dấu được (SRS BR-39).
 - Tuần bắt đầu từ thứ Hai hay Chủ Nhật?
