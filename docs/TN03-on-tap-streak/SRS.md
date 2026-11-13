@@ -30,13 +30,13 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày `[giả định]`. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau |
-| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1 (đang ở mức 0 thì giữ mức 0), đến hạn ngày mai, và hỏi lại cuối phiên. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
+| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1 (đang ở mức 0 thì giữ mức 0), đến hạn ngày mai, và hỏi lại cuối phiên. Mức ôn chỉ tính theo **lần trả lời đầu tiên** của từ trong phiên: trả lời đúng ở lần hỏi lại cuối phiên không lên mức và không đổi đến hạn. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
 | BR-25 | **Từ cần ôn hôm nay** = từ có đến hạn ≤ hôm nay. **Phiên ôn** lấy tối đa 20 từ, ưu tiên từ quá hạn lâu nhất, sau đó mức thấp hơn trước |
 | BR-26 | **Dạng bài ôn**: chọn ngẫu nhiên trong `CHON_NGHIA`, `NGHE_CHON`, điền từ còn thiếu; áp dụng tạm tắt nghe của BR-18 |
 | BR-27 | **Đạt mục tiêu ngày** khi tổng thời gian học (bài học + ôn tập, BR-21) trong ngày ≥ mục tiêu ngày. Ngày tính theo múi giờ thiết bị, từ 00:00 đến 23:59 |
 | BR-28 | **Chuỗi**: đạt mục tiêu ngày thì chuỗi +1 (tối đa 1 lần mỗi ngày). Lưu chuỗi hiện tại và chuỗi dài nhất |
 | BR-29 | **Ngày bảo lưu**: được 1 ngày khi chuỗi chạm mỗi bội số của 7; giữ tối đa 2 `[giả định]` |
-| BR-30 | **Chốt ngày** lúc 00:00: hôm qua chưa đạt mục tiêu → còn bảo lưu thì trừ 1, chuỗi giữ nguyên, ngày đó ghi "Đã bảo lưu"; hết bảo lưu thì chuỗi về 0. Lỡ nhiều ngày liền thì dùng bảo lưu cho từng ngày cho tới khi hết |
+| BR-30 | **Chốt ngày** lúc 00:00: hôm qua chưa đạt mục tiêu → còn bảo lưu thì trừ 1, chuỗi giữ nguyên, ngày đó ghi "Đã bảo lưu"; hết bảo lưu thì chuỗi về 0. Lỡ nhiều ngày liền thì dùng bảo lưu cho từng ngày cho tới khi hết. **Mở lại ngày đã chốt**: kết quả học ngoại tuyến mang thời điểm học thuộc ngày đã chốt, gửi lên trong vòng 72 giờ sau khi ngày đó kết thúc `[giả định]`, được cộng vào ngày đó. Nếu nhờ vậy ngày đó đạt mục tiêu thì ngày chuyển `DAT_MUC_TIEU` và chuỗi được tính lại từ ngày đó: hoàn bảo lưu đã trừ, hoặc khôi phục chuỗi đã về 0 rồi cộng tiếp các ngày đạt sau đó. Quá 72 giờ → chỉ cộng thời gian vào thống kê, không đổi chuỗi. Thời điểm học ở tương lai so với giờ máy chủ bị từ chối |
 | BR-31 | **Nhắc học**: tối đa 1 lần mỗi ngày vào giờ đã chọn (mặc định 20:00); không gửi nếu hôm đó đã đạt mục tiêu; gửi theo lịch cục bộ trên máy, huỷ ngay khi đạt mục tiêu `[giả định]` |
 | BR-32 | **Đổi múi giờ**: ngày đang diễn ra giữ theo múi giờ cũ đến hết ngày; từ ngày hôm sau theo múi giờ mới |
 
@@ -76,6 +76,8 @@ stateDiagram-v2
   DANG_HOC --> DA_BAO_LUU : Chốt ngày, còn bảo lưu
   CHUA_HOC --> MAT_CHUOI : Chốt ngày, hết bảo lưu
   DANG_HOC --> MAT_CHUOI : Chốt ngày, hết bảo lưu
+  DA_BAO_LUU --> DAT_MUC_TIEU : Kết quả ngoại tuyến gửi muộn, BR-30
+  MAT_CHUOI --> DAT_MUC_TIEU : Kết quả ngoại tuyến gửi muộn, BR-30
   DAT_MUC_TIEU --> [*]
   DA_BAO_LUU --> [*]
   MAT_CHUOI --> [*]
@@ -157,7 +159,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  A["Kết thúc bài học hoặc phiên ôn"] --> B["Cộng thời gian học hôm nay"]
+  A["Kết thúc hoặc thoát giữa bài học, phiên ôn"] --> B["Cộng thời gian học hôm nay"]
   B --> C{"Đủ mục tiêu ngày lần đầu hôm nay?"}
   C -->|Không| D["Cập nhật vòng tiến độ"]
   C -->|Có| E["Chuỗi +1, ngày DAT_MUC_TIEU"]
@@ -179,7 +181,7 @@ flowchart TD
 
 | **Bước** | **Actor** | **Mô tả** |
 | --- | --- | --- |
-| 1 | Hệ thống | Sau mỗi bài học hoặc phiên ôn, cộng thời gian học của ngày (BR-27) |
+| 1 | Hệ thống | Sau mỗi bài học hoặc phiên ôn, và mỗi khi người học thoát giữa bài hoặc app xuống nền (TN02 BR-20), cộng thời gian học của ngày (BR-27) |
 | 2 | Hệ thống | Lần đầu đạt mục tiêu trong ngày → chuỗi +1 (BR-28), huỷ nhắc học hôm nay (BR-31) |
 | 3 | Hệ thống | Chuỗi chạm bội số của 7 → cộng bảo lưu nếu chưa đủ 2 (BR-29) |
 | 4 | Hệ thống | Hiện MSG-21 (và MSG-22 nếu có) ở **SCR-07** |
@@ -193,6 +195,7 @@ flowchart TD
 | A2 | App không mở lúc 00:00 | Chốt bù khi mở app hoặc khi máy chủ đồng bộ |
 | A3 | Đổi múi giờ | Theo BR-32 |
 | A4 | Đổi mục tiêu ngày | Áp dụng từ ngày hôm sau (BR-08); không ảnh hưởng ngày đang diễn ra |
+| A5 | Kết quả học ngoại tuyến của ngày đã chốt được gửi muộn | Trong 72 giờ: cộng vào ngày đó, tính lại trạng thái ngày và chuỗi theo BR-30; lần mở app tới không hiện MSG-23, MSG-24 cho ngày đã được sửa. Quá 72 giờ: chỉ cộng vào thống kê |
 
 ### UC-08 Cài đặt nhắc học
 
@@ -294,9 +297,9 @@ flowchart TD
 | **API** | **Request chính** | **Response chính** | **Timeout / retry** `[giả định]` |
 | --- | --- | --- | --- |
 | \[ReviewQueueGet\] | profile_id, ngày | Từ đến hạn, mức ôn, nội dung bài ôn | 5s / 1 lần; cache cho ngoại tuyến |
-| \[ReviewSubmit\] | Kết quả từng từ, thời gian ôn | Mức ôn mới, đến hạn mới, tiến độ ngày, chuỗi | 5s / gửi lại khi có mạng |
+| \[ReviewSubmit\] | Kết quả từng từ (lần trả lời đầu và lần hỏi lại), thời gian ôn, thời điểm học | Mức ôn mới, đến hạn mới, tiến độ ngày, chuỗi | 5s / gửi lại khi có mạng |
 | \[StreakGet\] | profile_id, tháng | Chuỗi, kỷ lục, bảo lưu, trạng thái từng ngày | 5s / 1 lần |
-| \[DailyCloseJob\] | Chạy trên máy chủ theo múi giờ từng người | Cập nhật chuỗi theo BR-30 | Chạy mỗi giờ cho các múi giờ vừa qua 00:00 |
+| \[DailyCloseJob\] | Chạy trên máy chủ theo múi giờ từng người | Cập nhật chuỗi theo BR-30 | Chạy mỗi giờ cho các múi giờ vừa qua 00:00; tính lại ngày đã chốt khi nhận kết quả gửi muộn trong 72 giờ |
 | \[ReminderSettingsSave\] | enabled, time, timezone | – | 5s / 2 lần |
 
 Nhắc học được lên lịch cục bộ trên thiết bị, để huỷ được ngay khi đạt mục tiêu mà không cần mạng.

@@ -76,10 +76,10 @@ Người học luôn thấy hôm nay cần ôn bao nhiêu từ, chuỗi hiện t
 | Khoảng ôn | 1, 3, 7, 14, 30, 60 ngày; đúng thì lên mức, sai thì về mức 1 |
 | Từ "đã thuộc" | Đạt mức 60 ngày và trả lời đúng |
 | Phiên ôn tập | Tối đa 20 từ; ưu tiên từ quá hạn lâu nhất |
-| Thời gian ôn | Tính vào mục tiêu ngày |
+| Thời gian ôn | Tính vào mục tiêu ngày; bài học hoặc phiên ôn thoát giữa chừng vẫn được tính phần thời gian đã học |
 | Tăng chuỗi | Đạt mục tiêu ngày trước 23:59 theo múi giờ thiết bị |
 | Ngày bảo lưu | Tối đa giữ 2; được 1 ngày sau mỗi 7 ngày chuỗi liên tiếp |
-| Lỡ ngày | Có bảo lưu → tự dùng, chuỗi giữ nguyên; không có → chuỗi về 0 |
+| Lỡ ngày | Có bảo lưu → tự dùng, chuỗi giữ nguyên; không có → chuỗi về 0. Kết quả học ngoại tuyến của ngày đó gửi lên trong 72 giờ thì ngày và chuỗi được tính lại |
 | Nhắc học | 1 lần mỗi ngày, giờ mặc định 20:00; không gửi khi đã đạt mục tiêu |
 
 - Các giá trị trên là **cấu hình**, không cố định trong code.
@@ -122,7 +122,7 @@ AC02: Phiên ôn tối đa 20 từ, ưu tiên từ quá hạn lâu nhất.
 
 AC03: Mỗi từ được hỏi bằng một dạng bài nhanh (chọn nghĩa, nghe chọn, điền từ).
 
-AC04: Đúng → từ lên mức khoảng ôn; sai → về mức 1 và hỏi lại cuối phiên.
+AC04: Đúng → từ lên mức khoảng ôn; sai → về mức 1 và hỏi lại cuối phiên. Trả lời đúng ở lần hỏi lại không làm từ lên mức.
 
 AC05: Còn hơn 20 từ → kết thúc phiên có nút "Ôn tiếp {n} từ".
 
@@ -191,6 +191,8 @@ AC05: Quyền thông báo bị tắt → màn cài đặt nhắc học nói rõ 
 | Quyền thông báo | Bị từ chối hoặc hệ điều hành gom thông báo | Nhắc trong app khi mở; giải thích lợi ích trước khi hỏi quyền |
 
 ## 10. Câu hỏi mở
+
+> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
 - Có cho người học tự sửa (khôi phục) chuỗi trong 24 giờ không?
 - Khoảng ôn có nên điều chỉnh theo độ khó của từ không?

@@ -76,7 +76,7 @@ Bỏ qua kiểm tra được, đổi trình độ được, làm lại kiểm tr
 | **Quy tắc** | **Giá trị** `[giả định]` |
 | --- | --- |
 | Trình độ | A1, A2, B1, B2 |
-| Bài kiểm tra | Thích ứng; bắt đầu ở A2; tối đa 20 câu; dừng sớm khi đã xác định được trình độ |
+| Bài kiểm tra | Thích ứng; bắt đầu ở A2; tối đa 20 câu; dừng sớm khi đã xác định được trình độ (chạm bậc cao nhất hoặc thấp nhất, hoặc dao động quanh một bậc); hết 20 câu thì xếp ở bậc cao nhất đạt từ 50% đúng |
 | Dạng câu | Chọn nghĩa từ, điền từ vào câu, nghe chọn đáp án, đọc hiểu ngắn |
 | "Tôi không biết" | Tính là sai, không phạt thêm |
 | Bỏ dở kiểm tra | Giữ tiến trình 24 giờ để làm tiếp |
@@ -196,6 +196,8 @@ AC02: Trình độ mới cao hơn → mở khoá các chặng tương ứng; kh�
 | Quyền thông báo | Từ chối quyền thì mất kênh nhắc học | Giải thích lợi ích trước khi hệ điều hành hỏi quyền |
 
 ## 10. Câu hỏi mở
+
+> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
 - Hồ sơ tạm (chưa có tài khoản) được giữ bao lâu, và có giới hạn số bài học không?
 - Có cho người học tự chọn trình độ mà không cần kiểm tra không?

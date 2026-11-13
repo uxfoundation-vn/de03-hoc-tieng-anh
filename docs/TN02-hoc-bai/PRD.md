@@ -77,8 +77,8 @@ Thoát giữa bài, mất mạng hay có cuộc gọi đến đều không làm 
 | --- | --- |
 | Độ dài bài | 10–15 bài tập, 3–5 phút |
 | Dạng bài | Thẻ từ mới, chọn nghĩa, ghép cặp, sắp xếp câu, nghe và chọn, nói lặp lại |
-| Hoàn thành bài | Trả lời đúng mọi câu, kể cả câu được hỏi lại |
-| Câu sai | Đưa xuống cuối bài để hỏi lại; tối đa 2 lần hỏi lại mỗi câu |
+| Hoàn thành bài | Khi không còn câu nào chờ: mỗi câu đã trả lời đúng, hoặc đã hỏi lại đủ 2 lần và được xem đáp án |
+| Câu sai | Đưa xuống cuối bài để hỏi lại; tối đa 2 lần hỏi lại mỗi câu; sau 2 lần vẫn sai thì hiện đáp án và đi tiếp, bài vẫn hoàn thành |
 | Chấm nói | Nhận dạng giọng nói, đạt khi khớp ≥ 70% số từ |
 | Tạm tắt nói, nghe | 15 phút; bài tập bị bỏ được thay bằng dạng khác |
 | Giữ tiến độ bài dở | 24 giờ |
@@ -197,6 +197,8 @@ AC04: Học lại bài đã hoàn thành vẫn tính thời gian học và ôn t
 | Bài quá dễ hoặc quá khó | Độ chính xác lệch | Theo dõi độ chính xác; gợi ý làm lại kiểm tra |
 
 ## 10. Câu hỏi mở
+
+> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
 - Có giới hạn số lần sai (cơ chế "trái tim") để tăng tập trung không?
 - Câu hỏi lại có đếm vào độ chính xác không, hay chỉ độ chính xác lần đầu?

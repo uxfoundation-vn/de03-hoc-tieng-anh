@@ -31,7 +31,7 @@
 | BR-33 | **Tuần** từ thứ Hai 00:00 đến Chủ Nhật 23:59 theo múi giờ đã lưu (BR-32). Mặc định tuần hiện tại; xem lùi tới tuần có hoạt động đầu tiên |
 | BR-34 | **Số liệu tuần** lấy từ DailyProgress (BR-27): tổng phút, số bài hoàn thành (kể cả học lại), số từ mới học trong tuần, số từ chuyển "Đã thuộc" trong tuần. **Tích luỹ**: tổng từ trước tới nay |
 | BR-35 | **So tuần trước**: chênh lệch phút = tuần này − tuần trước. Tuần hiện tại so với cả tuần trước, kèm ghi chú "Tuần chưa kết thúc". Tuần trước không có hoạt động → không so |
-| BR-36 | **Mức nhớ hiển thị** từ mức ôn (BR-23): mức 0–1 "Mới học", 2–4 "Đang nhớ", 5 "Nhớ tốt", mastered "Đã thuộc" |
+| BR-36 | **Mức nhớ hiển thị** từ mức ôn (BR-23): mức 0–1 "Mới học", 2–4 "Đang nhớ", 5–6 chưa `mastered` "Nhớ tốt", `mastered` "Đã thuộc". Từ lên mức 6 nhưng chưa trả lời đúng ở mức 6 (BR-24) vẫn là "Nhớ tốt" |
 | BR-37 | **Tiến độ trình độ** = chặng `DA_HOAN_THANH` / tổng chặng của trình độ hiện tại. Chặng hoàn thành khi mọi bài trong chặng `DA_HOAN_THANH` |
 | BR-38 | **Hoàn thành trình độ**: hiện gợi ý (MSG-29) với 2 lựa chọn: làm bài kiểm tra (bỏ qua giới hạn 30 ngày của BR-10) hoặc học tiếp trình độ kế tiếp. B2 là trình độ cao nhất ở MVP |
 | BR-39 | **Sổ từ**: mọi từ có ReviewItem; mặc định sắp mới học trước; sắp xếp khác: A–Z, cần ôn sớm nhất. Tìm theo từ hoặc nghĩa, bỏ dấu, không phân biệt hoa thường; tải 50 từ mỗi lần `[giả định]` |
