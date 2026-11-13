@@ -1,8 +1,6 @@
-> **Mã:** DE03-TN01-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE03-TN01-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Kiểm tra đầu vào và lộ trình (App học tiếng Anh)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -22,9 +20,9 @@ Người dùng mới tải app với trình độ rất khác nhau: có người
 
 ### 1.3 Mục tiêu
 
-- ≥ 70% người dùng mới hoàn thành onboarding (đến màn lộ trình) `[giả định]`.
-- Thời gian từ mở app đến bài học đầu tiên ≤ 6 phút `[giả định]`.
-- ≥ 60% người hoàn thành onboarding học xong bài đầu tiên trong cùng ngày `[giả định]`.
+- ≥ 70% người dùng mới hoàn thành onboarding (đến màn lộ trình).
+- Thời gian từ mở app đến bài học đầu tiên ≤ 6 phút.
+- ≥ 60% người hoàn thành onboarding học xong bài đầu tiên trong cùng ngày.
 
 ## 2. Người dùng
 
@@ -73,7 +71,7 @@ Bỏ qua kiểm tra được, đổi trình độ được, làm lại kiểm tr
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Trình độ | A1, A2, B1, B2 |
 | Bài kiểm tra | Thích ứng; bắt đầu ở A2; tối đa 20 câu; dừng sớm khi đã xác định được trình độ (chạm bậc cao nhất hoặc thấp nhất, hoặc dao động quanh một bậc); hết 20 câu thì xếp ở bậc cao nhất đạt từ 50% đúng |
@@ -174,7 +172,7 @@ AC01: Làm lại bài kiểm tra từ Hồ sơ; nếu chưa đủ 30 ngày thì 
 
 AC02: Trình độ mới cao hơn → mở khoá các chặng tương ứng; không xoá tiến độ đã học.
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |

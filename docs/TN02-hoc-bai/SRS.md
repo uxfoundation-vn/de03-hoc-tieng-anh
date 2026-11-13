@@ -1,8 +1,8 @@
-> **Mã:** DE03-TN02-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE03-TN02-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE03-02 - Học bài
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. Lộ trình và mở khoá xem [SRS TN01](../TN01-kiem-tra-dau-vao-lo-trinh/SRS.md); chuỗi ngày học và ôn tập xem [SRS TN03](../TN03-on-tap-streak/SRS.md).
+> Lộ trình và mở khoá xem [SRS TN01](../TN01-kiem-tra-dau-vao-lo-trinh/SRS.md); chuỗi ngày học và ôn tập xem [SRS TN03](../TN03-on-tap-streak/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người học · Hệ thống (app) · Máy chủ nội dung · Dịch vụ nhận dạng giọng nói |
 | Phạm vi | Tải bài, 6 dạng bài tập, chấm, phản hồi, hỏi lại, tạm tắt nói và nghe, thoát và học tiếp, màn kết thúc |
 | Ngoài phạm vi | Chấm phát âm chi tiết, hội thoại AI, giới hạn số lần sai |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -28,17 +28,17 @@
 
 | **Mã** | **Quy tắc** |
 | --- | --- |
-| BR-11 | **Bài học** gồm 2–4 thẻ từ mới và 10–15 bài tập; toàn bộ nội dung và âm thanh tải trước khi bắt đầu `[giả định]` |
+| BR-11 | **Bài học** gồm 2–4 thẻ từ mới và 10–15 bài tập; toàn bộ nội dung và âm thanh tải trước khi bắt đầu |
 | BR-12 | **Dạng bài**: `THE_TU` (thẻ từ mới, không chấm; có nút "Tôi đã biết từ này": bỏ qua thẻ, từ vào sổ từ với nhãn "Đã biết" và không vào lịch ôn, xem TN03 BR-23), `CHON_NGHIA`, `GHEP_CAP` (4–5 cặp), `SAP_XEP_CAU`, `NGHE_CHON`, `NOI_LAP_LAI` |
 | BR-13 | **Thứ tự**: theo nội dung bài; không xếp 2 bài tập cùng dạng liền nhau khi còn dạng khác |
 | BR-14 | **Chấm**: `CHON_NGHIA`, `NGHE_CHON` so khớp đáp án; `GHEP_CAP` đạt khi ghép đúng hết, sai từng cặp thì cặp đó rung và trả lại; `SAP_XEP_CAU` so khớp câu, chấp nhận các đáp án tương đương do nội dung khai báo |
-| BR-15 | **Chấm nói**: chuyển giọng nói thành chữ, đạt khi khớp ≥ 70% số từ của câu mẫu (bỏ dấu câu, không phân biệt hoa thường). Tối đa 3 lần thử mỗi câu; lần 3 chưa đạt thì cho "Tiếp tục" và không tính sai `[giả định]` |
+| BR-15 | **Chấm nói**: chuyển giọng nói thành chữ, đạt khi khớp ≥ 70% số từ của câu mẫu (bỏ dấu câu, không phân biệt hoa thường). Tối đa 3 lần thử mỗi câu; lần 3 chưa đạt thì cho "Tiếp tục" và không tính sai |
 | BR-16 | **Câu sai** được đưa xuống cuối hàng đợi để hỏi lại; mỗi câu hỏi lại tối đa 2 lần. Sau 2 lần vẫn sai thì hiện đáp án và đi tiếp |
 | BR-17 | **Hoàn thành bài** khi hàng đợi trống, tức mỗi câu đã đúng hoặc đã hết 2 lần hỏi lại (BR-16); không yêu cầu đúng mọi câu. Độ chính xác = số câu đúng ngay lần đầu / số câu được chấm (không tính `THE_TU` và câu nói bị bỏ qua) |
-| BR-18 | **Tạm tắt** "Không tiện nói" hoặc "Không tiện nghe": tắt dạng đó trong 15 phút trên toàn app; bài tập đang hiện được thay bằng bài cùng nội dung ở dạng `CHON_NGHIA` `[giả định]` |
+| BR-18 | **Tạm tắt** "Không tiện nói" hoặc "Không tiện nghe": tắt dạng đó trong 15 phút trên toàn app; bài tập đang hiện được thay bằng bài cùng nội dung ở dạng `CHON_NGHIA` |
 | BR-19 | **Quyền micro**: hỏi lần đầu gặp `NOI_LAP_LAI`, có màn giải thích trước. Từ chối → thay dạng như BR-18, không hỏi lại trong phiên |
 | BR-20 | **Thoát giữa bài**: lưu hàng đợi và kết quả đã có; giữ 24 giờ. Thời gian đã học tới lúc thoát (BR-21) được gửi ngay bằng \[StudyTimeAdd\] để cộng vào mục tiêu ngày (TN03 UC-07), kể cả khi bài không được học tiếp. App xuống nền → tạm dừng, không tính thời gian, và cũng gửi phần thời gian đã học |
-| BR-21 | **Thời gian học** đếm khi bài đang hiện trên màn, dừng khi app ở nền hoặc bỏ tương tác quá 60 giây `[giả định]` |
+| BR-21 | **Thời gian học** đếm khi bài đang hiện trên màn, dừng khi app ở nền hoặc bỏ tương tác quá 60 giây |
 | BR-22 | **Kết thúc bài**: gửi kết quả; bài chuyển `DA_HOAN_THANH`, mở bài kế tiếp (BR-09); từ mới được thêm vào sổ từ để ôn (TN03). Học lại bài đã hoàn thành: vẫn tính thời gian và cập nhật lịch ôn, không đổi mở khoá |
 
 ## 4. Trạng thái
@@ -273,7 +273,7 @@ flowchart TD
 
 ## 8. API
 
-| **API** | **Request chính** | **Response chính** | **Timeout / retry** `[giả định]` |
+| **API** | **Request chính** | **Response chính** | **Timeout / retry** |
 | --- | --- | --- | --- |
 | \[LessonGet\] | lesson_id | Thẻ từ, bài tập (dạng, nội dung, đáp án, giải thích), link âm thanh | 8s / 2 lần |
 | \[SpeechRecognize\] | audio, ngôn ngữ en-US | Chuỗi nhận dạng, độ tin cậy | 6s / không tự retry |
@@ -334,7 +334,7 @@ sequenceDiagram
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | Tải bài ≤ 3 giây trên 4G; phản hồi chấm ≤ 200 ms (trừ bài nói); chấm nói ≤ 3 giây |
 | Offline | Sau khi tải, bài học làm được khi mất mạng (trừ bài nói); kết quả gửi lại sau |

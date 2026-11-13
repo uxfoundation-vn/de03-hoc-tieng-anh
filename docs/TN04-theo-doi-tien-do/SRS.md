@@ -1,8 +1,8 @@
-> **Mã:** DE03-TN04-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE03-TN04-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE03-04 - Theo dõi tiến độ
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. Thời gian học và mức ôn xem [SRS TN02](../TN02-hoc-bai/SRS.md), [SRS TN03](../TN03-on-tap-streak/SRS.md).
+> Thời gian học và mức ôn xem [SRS TN02](../TN02-hoc-bai/SRS.md), [SRS TN03](../TN03-on-tap-streak/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người học · Hệ thống (app) · Máy chủ |
 | Phạm vi | Màn Tiến độ, biểu đồ tuần, tiến độ trình độ, gợi ý lên trình độ, sổ từ vựng, chi tiết từ |
 | Ngoài phạm vi | Thống kê theo kỹ năng, so sánh với người khác, xuất sổ từ |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -33,7 +33,7 @@
 | BR-36 | **Mức nhớ hiển thị** từ mức ôn (BR-23): mức 0–1 "Mới học", 2–4 "Đang nhớ", 5–6 chưa `mastered` "Nhớ tốt", `mastered` "Đã thuộc"; từ `known` hiện "Đã biết" (tự đánh dấu, không ôn). Từ lên mức 6 nhưng chưa trả lời đúng ở mức 6 (BR-24) vẫn là "Nhớ tốt" |
 | BR-37 | **Tiến độ trình độ** = chặng `DA_HOAN_THANH` / tổng chặng của trình độ hiện tại. Chặng hoàn thành khi mọi bài trong chặng `DA_HOAN_THANH` |
 | BR-38 | **Hoàn thành trình độ**: hiện gợi ý (MSG-29) với 2 lựa chọn: làm bài kiểm tra (bỏ qua giới hạn 30 ngày của BR-10) hoặc học tiếp trình độ kế tiếp. B2 là trình độ cao nhất ở MVP |
-| BR-39 | **Sổ từ**: mọi từ có ReviewItem; mỗi từ có nút "Đánh dấu đã biết" / "Bỏ đánh dấu" (TN03 BR-23); mặc định sắp mới học trước; sắp xếp khác: A–Z, cần ôn sớm nhất. Tìm theo từ hoặc nghĩa, bỏ dấu, không phân biệt hoa thường; tải 50 từ mỗi lần `[giả định]` |
+| BR-39 | **Sổ từ**: mọi từ có ReviewItem; mỗi từ có nút "Đánh dấu đã biết" / "Bỏ đánh dấu" (TN03 BR-23); mặc định sắp mới học trước; sắp xếp khác: A–Z, cần ôn sớm nhất. Tìm theo từ hoặc nghĩa, bỏ dấu, không phân biệt hoa thường; tải 50 từ mỗi lần |
 
 ## 4. Trạng thái
 
@@ -158,7 +158,7 @@ flowchart TD
 | --- | --- | --- |
 | Tab Tiến độ | UC-09, **SCR-11** | |
 | Nút "Sổ từ vựng" ở **SCR-11** | UC-10, **SCR-12** | |
-| Ô "Từ mới" ở **SCR-07** | **SCR-12** lọc từ vừa học | `[giả định]` |
+| Ô "Từ mới" ở **SCR-07** | **SCR-12** lọc từ vừa học | |
 | Hồ sơ → Trình độ | Phần tiến độ trình độ ở **SCR-11** | |
 
 ## 7. Mô tả màn hình
@@ -188,7 +188,7 @@ flowchart TD
 
 ## 8. API
 
-| **API** | **Request chính** | **Response chính** | **Timeout / retry** `[giả định]` |
+| **API** | **Request chính** | **Response chính** | **Timeout / retry** |
 | --- | --- | --- | --- |
 | \[ProgressWeekGet\] | profile_id, week_start | Phút mỗi ngày, mục tiêu ngày, bài hoàn thành, từ mới, từ đã thuộc, so tuần trước, tích luỹ | 5s / 1 lần; cache |
 | \[LevelProgressGet\] | profile_id | level, chặng đã xong, tổng chặng, level_completed | 5s / 1 lần |
@@ -239,7 +239,7 @@ sequenceDiagram
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | **SCR-11** hiện ≤ 1,5 giây; tìm trong sổ từ ≤ 500 ms với 5.000 từ |
 | Nhất quán | Phút học ở mọi màn lấy từ cùng một nguồn (DailyProgress) |

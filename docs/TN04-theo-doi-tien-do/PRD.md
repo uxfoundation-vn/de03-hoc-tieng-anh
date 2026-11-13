@@ -1,8 +1,6 @@
-> **Mã:** DE03-TN04-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE03-TN04-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Theo dõi tiến độ (App học tiếng Anh)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -22,8 +20,8 @@ Người học đã học bài ([TN02](../TN02-hoc-bai/PRD.md)) và ôn tập đ
 
 ### 1.3 Mục tiêu
 
-- ≥ 40% người học hoạt động mở màn Tiến độ ít nhất 1 lần mỗi tuần `[giả định]`.
-- Người học trả lời được "tuần này tôi đã học bao nhiêu" trong ≤ 5 giây `[giả định]`.
+- ≥ 40% người học hoạt động mở màn Tiến độ ít nhất 1 lần mỗi tuần.
+- Người học trả lời được "tuần này tôi đã học bao nhiêu" trong ≤ 5 giây.
 - Sổ từ vựng là nơi duy nhất để xem lại mọi từ đã học.
 
 ## 2. Người dùng
@@ -71,7 +69,7 @@ Sổ từ vựng cho người học xem lại, tìm kiếm và ôn bất kỳ t�
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Tuần | Thứ Hai đến Chủ Nhật, theo múi giờ của người học |
 | Thời gian học | Tổng thời gian bài học và ôn tập theo BR-21 |
@@ -148,7 +146,7 @@ AC01: Chi tiết từ hiện từ, phiên âm, nút nghe, nghĩa, câu ví dụ,
 
 AC02: "Ôn từ này" mở phiên ôn chỉ gồm từ đó (TN03).
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |
