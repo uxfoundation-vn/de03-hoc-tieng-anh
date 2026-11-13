@@ -192,9 +192,9 @@ AC05: Quyền thông báo bị tắt → màn cài đặt nhắc học nói rõ 
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
-- Có cho người học tự sửa (khôi phục) chuỗi trong 24 giờ không?
+- Có cho người học tự sửa (khôi phục) chuỗi trong 24 giờ không? → **Đã chốt:** Không. Chuỗi được giữ bằng ngày bảo lưu tự động, và kết quả ngoại tuyến gửi muộn trong 72 giờ được tính lại (SRS BR-29, BR-30).
 - Khoảng ôn có nên điều chỉnh theo độ khó của từ không? → **Đã chốt:** Có. Mỗi từ có hệ số độ khó nhân vào khoảng ôn (SRS BR-23).
-- Ôn tập có tính là đạt mục tiêu ngày nếu không học bài mới?
-- Có thêm lần nhắc thứ hai trước khi hết ngày khi chuỗi sắp mất?
+- Ôn tập có tính là đạt mục tiêu ngày nếu không học bài mới? → **Đã chốt:** Có. Thời gian ôn tập tính vào mục tiêu ngày (SRS BR-27).
+- Có thêm lần nhắc thứ hai trước khi hết ngày khi chuỗi sắp mất? → **Đã chốt:** Không. Tối đa 1 lần nhắc mỗi ngày (SRS BR-31).

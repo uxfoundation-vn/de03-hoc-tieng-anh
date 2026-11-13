@@ -198,9 +198,9 @@ AC04: Học lại bài đã hoàn thành vẫn tính thời gian học và ôn t
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
-- Có giới hạn số lần sai (cơ chế "trái tim") để tăng tập trung không?
-- Câu hỏi lại có đếm vào độ chính xác không, hay chỉ độ chính xác lần đầu?
+- Có giới hạn số lần sai (cơ chế "trái tim") để tăng tập trung không? → **Đã chốt:** Không (ngoài phạm vi).
+- Câu hỏi lại có đếm vào độ chính xác không, hay chỉ độ chính xác lần đầu? → **Đã chốt:** Không. Chỉ tính độ chính xác lần đầu (SRS BR-17).
 - Bài nói có cần lưu bản ghi âm để người học nghe lại? → **Đã chốt:** Không lưu. Bản ghi chỉ dùng để nhận dạng rồi bỏ (SRS mục 10).
 - Có cho bỏ qua thẻ từ mới khi đã biết từ đó? → **Đã chốt:** Có. Nút "Tôi đã biết từ này" bỏ qua thẻ và đánh dấu từ là Đã biết.

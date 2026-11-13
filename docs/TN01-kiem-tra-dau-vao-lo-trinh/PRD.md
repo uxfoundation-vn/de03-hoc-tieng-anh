@@ -197,9 +197,9 @@ AC02: Trình độ mới cao hơn → mở khoá các chặng tương ứng; kh�
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
 - Hồ sơ tạm (chưa có tài khoản) được giữ bao lâu, và có giới hạn số bài học không? → **Đã chốt:** Giữ 2 năm trên máy, không giới hạn số bài học.
-- Có cho người học tự chọn trình độ mà không cần kiểm tra không?
+- Có cho người học tự chọn trình độ mà không cần kiểm tra không? → **Đã chốt:** Chỉ chọn được "Tôi mới bắt đầu" (xếp A1, SRS BR-02); bậc khác phải qua kiểm tra, sau đó được chọn bắt đầu thấp hơn một bậc (SRS BR-07).
 - Lý do học có làm thay đổi nội dung lộ trình ở MVP không, hay chỉ ghi nhận? → **Đã chốt:** Không. Chỉ ghi nhận ở MVP.
-- Khoảng cách làm lại kiểm tra 30 ngày có phù hợp không?
+- Khoảng cách làm lại kiểm tra 30 ngày có phù hợp không? → **Đã chốt:** Giữ 30 ngày (SRS BR-10).

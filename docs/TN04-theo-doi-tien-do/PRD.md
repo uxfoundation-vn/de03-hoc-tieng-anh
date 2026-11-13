@@ -169,9 +169,9 @@ AC02: "Ôn từ này" mở phiên ôn chỉ gồm từ đó (TN03).
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
 - Hoàn thành trình độ có bắt buộc làm kiểm tra mới được lên không? → **Đã chốt:** Không bắt buộc. Người học chọn làm kiểm tra hoặc tự lên trình độ kế tiếp (SRS BR-38).
-- Có cần thống kê theo kỹ năng (nghe, nói) ở MVP?
+- Có cần thống kê theo kỹ năng (nghe, nói) ở MVP? → **Đã chốt:** Không ở MVP.
 - Sổ từ có cho người học tự đánh dấu "Đã biết" để bỏ qua ôn không? → **Đã chốt:** Có. Từ "Đã biết" không vào phiên ôn, bỏ đánh dấu được (SRS BR-39).
-- Tuần bắt đầu từ thứ Hai hay Chủ Nhật?
+- Tuần bắt đầu từ thứ Hai hay Chủ Nhật? → **Đã chốt:** Thứ Hai (SRS BR-33).
