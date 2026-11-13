@@ -76,7 +76,7 @@ Bỏ qua kiểm tra được, đổi trình độ được, làm lại kiểm tr
 | **Quy tắc** | **Giá trị** `[giả định]` |
 | --- | --- |
 | Trình độ | A1, A2, B1, B2 |
-| Bài kiểm tra | Thích ứng; bắt đầu ở A2; tối đa 20 câu; dừng sớm khi đã xác định được trình độ |
+| Bài kiểm tra | Thích ứng; bắt đầu ở A2; tối đa 20 câu; dừng sớm khi đã xác định được trình độ (chạm bậc cao nhất hoặc thấp nhất, hoặc dao động quanh một bậc); hết 20 câu thì xếp ở bậc cao nhất đạt từ 50% đúng |
 | Dạng câu | Chọn nghĩa từ, điền từ vào câu, nghe chọn đáp án, đọc hiểu ngắn |
 | "Tôi không biết" | Tính là sai, không phạt thêm |
 | Bỏ dở kiểm tra | Giữ tiến trình 24 giờ để làm tiếp |
@@ -197,7 +197,9 @@ AC02: Trình độ mới cao hơn → mở khoá các chặng tương ứng; kh�
 
 ## 10. Câu hỏi mở
 
-- Hồ sơ tạm (chưa có tài khoản) được giữ bao lâu, và có giới hạn số bài học không?
-- Có cho người học tự chọn trình độ mà không cần kiểm tra không?
-- Lý do học có làm thay đổi nội dung lộ trình ở MVP không, hay chỉ ghi nhận?
-- Khoảng cách làm lại kiểm tra 30 ngày có phù hợp không?
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
+
+- Hồ sơ tạm (chưa có tài khoản) được giữ bao lâu, và có giới hạn số bài học không? → **Đã chốt:** Giữ 2 năm trên máy, không giới hạn số bài học.
+- Có cho người học tự chọn trình độ mà không cần kiểm tra không? → **Đã chốt:** Chỉ chọn được "Tôi mới bắt đầu" (xếp A1, SRS BR-02); bậc khác phải qua kiểm tra, sau đó được chọn bắt đầu thấp hơn một bậc (SRS BR-07).
+- Lý do học có làm thay đổi nội dung lộ trình ở MVP không, hay chỉ ghi nhận? → **Đã chốt:** Không. Chỉ ghi nhận ở MVP.
+- Khoảng cách làm lại kiểm tra 30 ngày có phù hợp không? → **Đã chốt:** Giữ 30 ngày (SRS BR-10).

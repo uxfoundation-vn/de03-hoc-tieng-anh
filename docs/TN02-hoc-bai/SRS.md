@@ -30,15 +30,15 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-11 | **Bài học** gồm 2–4 thẻ từ mới và 10–15 bài tập; toàn bộ nội dung và âm thanh tải trước khi bắt đầu `[giả định]` |
-| BR-12 | **Dạng bài**: `THE_TU` (thẻ từ mới, không chấm), `CHON_NGHIA`, `GHEP_CAP` (4–5 cặp), `SAP_XEP_CAU`, `NGHE_CHON`, `NOI_LAP_LAI` |
+| BR-12 | **Dạng bài**: `THE_TU` (thẻ từ mới, không chấm; có nút "Tôi đã biết từ này": bỏ qua thẻ, từ vào sổ từ với nhãn "Đã biết" và không vào lịch ôn, xem TN03 BR-23), `CHON_NGHIA`, `GHEP_CAP` (4–5 cặp), `SAP_XEP_CAU`, `NGHE_CHON`, `NOI_LAP_LAI` |
 | BR-13 | **Thứ tự**: theo nội dung bài; không xếp 2 bài tập cùng dạng liền nhau khi còn dạng khác |
 | BR-14 | **Chấm**: `CHON_NGHIA`, `NGHE_CHON` so khớp đáp án; `GHEP_CAP` đạt khi ghép đúng hết, sai từng cặp thì cặp đó rung và trả lại; `SAP_XEP_CAU` so khớp câu, chấp nhận các đáp án tương đương do nội dung khai báo |
 | BR-15 | **Chấm nói**: chuyển giọng nói thành chữ, đạt khi khớp ≥ 70% số từ của câu mẫu (bỏ dấu câu, không phân biệt hoa thường). Tối đa 3 lần thử mỗi câu; lần 3 chưa đạt thì cho "Tiếp tục" và không tính sai `[giả định]` |
 | BR-16 | **Câu sai** được đưa xuống cuối hàng đợi để hỏi lại; mỗi câu hỏi lại tối đa 2 lần. Sau 2 lần vẫn sai thì hiện đáp án và đi tiếp |
-| BR-17 | **Hoàn thành bài** khi hàng đợi trống. Độ chính xác = số câu đúng ngay lần đầu / số câu được chấm (không tính `THE_TU` và câu nói bị bỏ qua) |
+| BR-17 | **Hoàn thành bài** khi hàng đợi trống, tức mỗi câu đã đúng hoặc đã hết 2 lần hỏi lại (BR-16); không yêu cầu đúng mọi câu. Độ chính xác = số câu đúng ngay lần đầu / số câu được chấm (không tính `THE_TU` và câu nói bị bỏ qua) |
 | BR-18 | **Tạm tắt** "Không tiện nói" hoặc "Không tiện nghe": tắt dạng đó trong 15 phút trên toàn app; bài tập đang hiện được thay bằng bài cùng nội dung ở dạng `CHON_NGHIA` `[giả định]` |
 | BR-19 | **Quyền micro**: hỏi lần đầu gặp `NOI_LAP_LAI`, có màn giải thích trước. Từ chối → thay dạng như BR-18, không hỏi lại trong phiên |
-| BR-20 | **Thoát giữa bài**: lưu hàng đợi và kết quả đã có; giữ 24 giờ. App xuống nền → tạm dừng, không tính thời gian |
+| BR-20 | **Thoát giữa bài**: lưu hàng đợi và kết quả đã có; giữ 24 giờ. Thời gian đã học tới lúc thoát (BR-21) được gửi ngay bằng \[StudyTimeAdd\] để cộng vào mục tiêu ngày (TN03 UC-07), kể cả khi bài không được học tiếp. App xuống nền → tạm dừng, không tính thời gian, và cũng gửi phần thời gian đã học |
 | BR-21 | **Thời gian học** đếm khi bài đang hiện trên màn, dừng khi app ở nền hoặc bỏ tương tác quá 60 giây `[giả định]` |
 | BR-22 | **Kết thúc bài**: gửi kết quả; bài chuyển `DA_HOAN_THANH`, mở bài kế tiếp (BR-09); từ mới được thêm vào sổ từ để ôn (TN03). Học lại bài đã hoàn thành: vẫn tính thời gian và cập nhật lịch ôn, không đổi mở khoá |
 
@@ -216,7 +216,7 @@ flowchart TD
 | 1 | Người học | Bấm ✕ khi đang trong bài |
 | 2 | Hệ thống | Hiện MSG-15 hỏi xác nhận, nói rõ tiến độ được giữ 24 giờ |
 | 3 | Người học | Chọn Thoát |
-| 4 | Hệ thống | Lưu hàng đợi câu hỏi, kết quả, thời gian đã học (BR-20) |
+| 4 | Hệ thống | Lưu hàng đợi câu hỏi, kết quả; gửi thời gian đã học vào mục tiêu ngày (BR-20) |
 | 5 | Hệ thống | Về lộ trình; bài hiện "Đang học dở" |
 | 6 | Người học | Mở lại bài trong 24 giờ → học tiếp từ câu đang dừng |
 
@@ -246,7 +246,7 @@ flowchart TD
 | 1 | Nút thoát | Icon ✕ | MSG-15 |
 | 2 | Thanh tiến trình | Progress | Câu đã xong / tổng câu, gồm cả câu hỏi lại |
 | 3 | Đề bài | Text | Hướng dẫn ngắn bằng tiếng Việt theo dạng bài |
-| 4 | Vùng nội dung | Theo dạng | `THE_TU`: từ, phiên âm, nghĩa, ví dụ, nút nghe · `CHON_NGHIA`: từ hoặc câu + 4 đáp án · `GHEP_CAP`: 2 cột chạm để ghép · `SAP_XEP_CAU`: các thẻ từ chạm để xếp, chạm lại để gỡ · `NGHE_CHON`: nút phát, nút phát chậm, 4 đáp án · `NOI_LAP_LAI`: câu mẫu, nút nghe mẫu, nút micro giữ để nói |
+| 4 | Vùng nội dung | Theo dạng | `THE_TU`: từ, phiên âm, nghĩa, ví dụ, nút nghe, nút "Tôi đã biết từ này" (BR-12) · `CHON_NGHIA`: từ hoặc câu + 4 đáp án · `GHEP_CAP`: 2 cột chạm để ghép · `SAP_XEP_CAU`: các thẻ từ chạm để xếp, chạm lại để gỡ · `NGHE_CHON`: nút phát, nút phát chậm, 4 đáp án · `NOI_LAP_LAI`: câu mẫu, nút nghe mẫu, nút micro giữ để nói |
 | 5 | "Không tiện nói / nghe lúc này" | Button text | Chỉ ở `NOI_LAP_LAI`, `NGHE_CHON` |
 | 6 | Nút Kiểm tra | Button | Disabled khi `CHUA_TRA_LOI`; ở `THE_TU` là nút Tiếp |
 
@@ -279,6 +279,7 @@ flowchart TD
 | \[LessonGet\] | lesson_id | Thẻ từ, bài tập (dạng, nội dung, đáp án, giải thích), link âm thanh | 8s / 2 lần |
 | \[SpeechRecognize\] | audio, ngôn ngữ en-US | Chuỗi nhận dạng, độ tin cậy | 6s / không tự retry |
 | \[LessonComplete\] | lesson_id, kết quả từng câu, thời gian học, accuracy | Bài kế tiếp mở khoá, từ mới thêm vào sổ, cập nhật mục tiêu ngày và chuỗi | 5s / gửi lại khi có mạng; idempotency key = lesson_id + session_id |
+| \[StudyTimeAdd\] | lesson_id, session_id, số giây học chưa gửi, thời điểm học | Tiến độ ngày, chuỗi | 5s / gửi lại khi có mạng; idempotency key = session_id + số thứ tự lần gửi. \[LessonComplete\] chỉ gửi phần thời gian chưa gửi qua API này, để không cộng hai lần |
 | \[ContentReport\] | exercise_id, lý do | – | 5s / 1 lần |
 
 Chấm các dạng bài không phải nói chạy trên app với đáp án đã tải, để phản hồi ngay mà không chờ mạng.

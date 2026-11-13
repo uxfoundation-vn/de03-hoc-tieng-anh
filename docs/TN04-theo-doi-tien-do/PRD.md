@@ -76,7 +76,7 @@ Sổ từ vựng cho người học xem lại, tìm kiếm và ôn bất kỳ t�
 | Tuần | Thứ Hai đến Chủ Nhật, theo múi giờ của người học |
 | Thời gian học | Tổng thời gian bài học và ôn tập theo BR-21 |
 | Từ đã học | Từ đã xuất hiện ở thẻ từ mới trong bài học đã hoàn thành |
-| Mức nhớ hiển thị | Mới học (mức 0–1), Đang nhớ (mức 2–4), Nhớ tốt (mức 5), Đã thuộc |
+| Mức nhớ hiển thị | Mới học (mức 0–1), Đang nhớ (mức 2–4), Nhớ tốt (mức 5–6, chưa đã thuộc), Đã thuộc, Đã biết (tự đánh dấu, không ôn) |
 | Tiến độ trình độ | Số chặng hoàn thành / tổng số chặng của trình độ hiện tại |
 | Lên trình độ | Hoàn thành mọi chặng của trình độ → gợi ý làm kiểm tra hoặc tự lên trình độ tiếp theo |
 
@@ -165,11 +165,13 @@ AC02: "Ôn từ này" mở phiên ôn chỉ gồm từ đó (TN03).
 | Số liệu lệch giữa các màn | Phút học ở **SCR-07**, **SCR-09**, **SCR-11** khác nhau | Một nguồn tính duy nhất (DailyProgress) |
 | Tuần ít học gây nản | Biểu đồ trống | Lời lẽ khích lệ, nêu ngày gần nhất có học |
 | Sổ từ lớn | Hàng nghìn từ, cuộn chậm | Tải dần, tìm kiếm trên máy chủ |
-| Lên trình độ không qua kiểm tra | Học không đủ vững | Gợi ý kiểm tra; cho tự lên nếu người học muốn `[cần chốt]` |
+| Lên trình độ không qua kiểm tra | Học không đủ vững | Gợi ý kiểm tra; cho tự lên nếu người học muốn (SRS BR-38) |
 
 ## 10. Câu hỏi mở
 
-- Hoàn thành trình độ có bắt buộc làm kiểm tra mới được lên không?
-- Có cần thống kê theo kỹ năng (nghe, nói) ở MVP?
-- Sổ từ có cho người học tự đánh dấu "Đã biết" để bỏ qua ôn không?
-- Tuần bắt đầu từ thứ Hai hay Chủ Nhật?
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
+
+- Hoàn thành trình độ có bắt buộc làm kiểm tra mới được lên không? → **Đã chốt:** Không bắt buộc. Người học chọn làm kiểm tra hoặc tự lên trình độ kế tiếp (SRS BR-38).
+- Có cần thống kê theo kỹ năng (nghe, nói) ở MVP? → **Đã chốt:** Không ở MVP.
+- Sổ từ có cho người học tự đánh dấu "Đã biết" để bỏ qua ôn không? → **Đã chốt:** Có. Từ "Đã biết" không vào phiên ôn, bỏ đánh dấu được (SRS BR-39).
+- Tuần bắt đầu từ thứ Hai hay Chủ Nhật? → **Đã chốt:** Thứ Hai (SRS BR-33).

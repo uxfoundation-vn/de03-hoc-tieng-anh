@@ -31,8 +31,8 @@
 | --- | --- |
 | BR-01 | **Trình độ** gồm A1, A2, B1, B2. Mỗi trình độ gồm nhiều chặng, mỗi chặng 5–8 bài học `[giả định]` |
 | BR-02 | Chọn "Tôi mới bắt đầu" → xếp A1, không làm kiểm tra |
-| BR-03 | **Bài kiểm tra thích ứng**: bắt đầu bằng câu A2. Trả lời đúng 2 câu liên tiếp → lên một bậc; sai 2 câu liên tiếp → xuống một bậc. Tối đa 20 câu `[giả định]` |
-| BR-04 | **Dừng sớm**: từ câu thứ 8, nếu 6 câu gần nhất cùng một bậc với tỉ lệ đúng 50–80% thì kết thúc và xếp ở bậc đó `[giả định]` |
+| BR-03 | **Bài kiểm tra thích ứng**: bắt đầu bằng câu A2. Trả lời đúng 2 câu liên tiếp → lên một bậc; sai 2 câu liên tiếp → xuống một bậc; sau mỗi lần đổi bậc, bộ đếm liên tiếp tính lại từ 0. Tối đa 20 câu `[giả định]`. **Hết 20 câu mà chưa dừng sớm** → xếp ở bậc cao nhất có ít nhất 2 câu đã trả lời và tỉ lệ đúng ở bậc đó ≥ 50%; không bậc nào đạt → xếp A1 `[giả định]` |
+| BR-04 | **Dừng sớm**, kiểm tra sau mỗi câu, điều kiện nào đạt trước thì áp dụng `[giả định]`: (a) **chạm trần**: đang ở B2 và đúng 2 câu liên tiếp → kết thúc, xếp B2; (b) **chạm sàn**: đang ở A1 và sai 2 câu liên tiếp → kết thúc, xếp A1; (c) **dao động giữa hai bậc**: từ câu thứ 8, bậc đã đổi chiều (lên rồi xuống, hoặc xuống rồi lên) từ 2 lần trở lên giữa hai bậc liền kề → kết thúc, xếp ở bậc thấp hơn trong hai bậc; (d) **đứng yên một bậc**: từ câu thứ 8, 6 câu gần nhất cùng một bậc mà không lên, không xuống (đúng sai xen kẽ) → kết thúc, xếp ở bậc đó. Người rất giỏi kết thúc sau 6 câu, người mới kết thúc sau 4 câu |
 | BR-05 | "Tôi không biết" tính là sai. Câu nghe bị bỏ qua vì lỗi âm thanh không tính vào kết quả và được thay bằng câu khác cùng bậc |
 | BR-06 | **Bỏ dở**: lưu tiến trình 24 giờ; quay lại trong thời gian này được hỏi làm tiếp hay làm lại (MSG-03). Quá 24 giờ thì bắt đầu lại |
 | BR-07 | **Kết quả**: trình độ xếp được; cho chọn "Bắt đầu thấp hơn một bậc" (không áp dụng khi kết quả là A1) |
@@ -116,7 +116,7 @@ flowchart TD
 | 3 | Người học | Chọn "Kiểm tra trình độ" |
 | 4 | Hệ thống | Tải bộ câu hỏi (\[PlacementStart\]), mở **SCR-02** với câu đầu tiên ở bậc A2 |
 | 5 | Người học | Trả lời từng câu hoặc bấm "Tôi không biết" |
-| 6 | Hệ thống | Sau mỗi câu: ghi kết quả, chọn câu tiếp theo theo BR-03; kiểm tra điều kiện dừng (BR-04) |
+| 6 | Hệ thống | Sau mỗi câu: ghi kết quả, chọn câu tiếp theo theo BR-03; kiểm tra điều kiện dừng sớm (BR-04); đủ 20 câu thì xếp bậc theo BR-03 |
 | 7 | Hệ thống | Kết thúc: gửi bài (\[PlacementSubmit\]), nhận trình độ, mở **SCR-03** |
 | 8 | Người học | Xem kết quả, chọn mục tiêu ngày, bấm Tiếp tục |
 | 9 | Hệ thống | Mời bật nhắc học, mời tạo tài khoản; lưu hồ sơ (\[ProfileSave\]) |
@@ -130,7 +130,7 @@ flowchart TD
 | A2 | Chọn "Bắt đầu thấp hơn một bậc" | Hạ một bậc trước khi lưu (BR-07) |
 | A3 | Thoát giữa bài kiểm tra | MSG-02; xác nhận thì lưu tiến trình (BR-06), về **SCR-01** |
 | A4 | Quay lại trong 24 giờ | MSG-03: "Làm tiếp" hoặc "Làm lại từ đầu" |
-| A5 | Chọn "Để sau" ở bước tạo tài khoản | Lưu hồ sơ tạm trên máy; nhắc tạo tài khoản sau bài học đầu tiên |
+| A5 | Chọn "Để sau" ở bước tạo tài khoản | Lưu hồ sơ tạm trên máy, giữ **2 năm** kể từ lần mở app cuối; không giới hạn số bài học `[giả định]`; nhắc tạo tài khoản sau bài học đầu tiên |
 | A6 | Từ chối quyền thông báo | Tiếp tục bình thường; nhắc học tắt |
 
 **Luồng lỗi**
@@ -202,7 +202,7 @@ flowchart TD
 
 | **#** | **Thành phần** | **Loại** | **Bắt buộc** | **Validate / hành vi** |
 | --- | --- | --- | --- | --- |
-| 1 | Lý do học | Thẻ chọn 1 | Có | Giao tiếp hằng ngày, Công việc, Du lịch, Thi cử |
+| 1 | Lý do học | Thẻ chọn 1 | Có | Giao tiếp hằng ngày, Công việc, Du lịch, Thi cử; chỉ ghi nhận, không đổi nội dung lộ trình ở MVP |
 | 2 | Điểm xuất phát | Thẻ chọn 1 | Có | "Tôi mới bắt đầu" · "Kiểm tra trình độ (khoảng 5 phút)" |
 | 3 | Nút Tiếp tục | Button | – | Disabled đến khi chọn xong bước hiện tại |
 | 4 | Thanh bước | Progress | – | Vị trí trong onboarding |
@@ -306,7 +306,7 @@ Bản EN: `[chờ bổ sung]`.
 | Hiệu năng | Tải bộ câu hỏi ≤ 3 giây trên 4G; chuyển câu ≤ 200 ms |
 | Offline | Bài kiểm tra chạy được khi mất mạng sau khi đã tải; lộ trình có bản lưu để xem ngoại tuyến |
 | Âm thanh | Âm thanh câu nghe tải trước cùng bộ câu hỏi; tôn trọng chế độ im lặng, nhắc bật tiếng khi vào câu nghe |
-| Bảo mật | Hồ sơ tạm chỉ lưu trên máy; kết quả kiểm tra gắn với tài khoản sau khi đăng ký |
+| Bảo mật | Hồ sơ tạm chỉ lưu trên máy, tự xoá sau 2 năm không mở app; kết quả kiểm tra gắn với tài khoản sau khi đăng ký |
 | Log / audit | Mỗi lần làm bài kiểm tra: thời điểm, số câu, trình độ được xếp, lựa chọn hạ bậc; mỗi lần đổi mục tiêu ngày |
 | Tracking | Từng bước onboarding, chọn điểm xuất phát, số câu đã làm, thoát giữa chừng (ở câu nào), kết quả, hạ bậc, mục tiêu ngày, cấp quyền thông báo |
 | Accessibility | Đáp án có vùng chạm ≥ 44 pt; câu nghe có phương án bỏ qua; hỗ trợ cỡ chữ hệ thống; trạng thái bài học có biểu tượng và nhãn, không chỉ dựa vào màu |

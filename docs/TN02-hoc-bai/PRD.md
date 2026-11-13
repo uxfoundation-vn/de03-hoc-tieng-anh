@@ -77,8 +77,8 @@ Thoát giữa bài, mất mạng hay có cuộc gọi đến đều không làm 
 | --- | --- |
 | Độ dài bài | 10–15 bài tập, 3–5 phút |
 | Dạng bài | Thẻ từ mới, chọn nghĩa, ghép cặp, sắp xếp câu, nghe và chọn, nói lặp lại |
-| Hoàn thành bài | Trả lời đúng mọi câu, kể cả câu được hỏi lại |
-| Câu sai | Đưa xuống cuối bài để hỏi lại; tối đa 2 lần hỏi lại mỗi câu |
+| Hoàn thành bài | Khi không còn câu nào chờ: mỗi câu đã trả lời đúng, hoặc đã hỏi lại đủ 2 lần và được xem đáp án |
+| Câu sai | Đưa xuống cuối bài để hỏi lại; tối đa 2 lần hỏi lại mỗi câu; sau 2 lần vẫn sai thì hiện đáp án và đi tiếp, bài vẫn hoàn thành |
 | Chấm nói | Nhận dạng giọng nói, đạt khi khớp ≥ 70% số từ |
 | Tạm tắt nói, nghe | 15 phút; bài tập bị bỏ được thay bằng dạng khác |
 | Giữ tiến độ bài dở | 24 giờ |
@@ -198,7 +198,9 @@ AC04: Học lại bài đã hoàn thành vẫn tính thời gian học và ôn t
 
 ## 10. Câu hỏi mở
 
-- Có giới hạn số lần sai (cơ chế "trái tim") để tăng tập trung không?
-- Câu hỏi lại có đếm vào độ chính xác không, hay chỉ độ chính xác lần đầu?
-- Bài nói có cần lưu bản ghi âm để người học nghe lại?
-- Có cho bỏ qua thẻ từ mới khi đã biết từ đó?
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
+
+- Có giới hạn số lần sai (cơ chế "trái tim") để tăng tập trung không? → **Đã chốt:** Không (ngoài phạm vi).
+- Câu hỏi lại có đếm vào độ chính xác không, hay chỉ độ chính xác lần đầu? → **Đã chốt:** Không. Chỉ tính độ chính xác lần đầu (SRS BR-17).
+- Bài nói có cần lưu bản ghi âm để người học nghe lại? → **Đã chốt:** Không lưu. Bản ghi chỉ dùng để nhận dạng rồi bỏ (SRS mục 10).
+- Có cho bỏ qua thẻ từ mới khi đã biết từ đó? → **Đã chốt:** Có. Nút "Tôi đã biết từ này" bỏ qua thẻ và đánh dấu từ là Đã biết.
