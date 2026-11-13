@@ -13,7 +13,6 @@
 | Phạm vi | Màn Tiến độ, biểu đồ tuần, tiến độ trình độ, gợi ý lên trình độ, sổ từ vựng, chi tiết từ |
 | Ngoài phạm vi | Thống kê theo kỹ năng, so sánh với người khác, xuất sổ từ |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -237,8 +236,6 @@ sequenceDiagram
 | MSG-28 | **SCR-11** | Tuần này bạn chưa học. Chỉ cần {mục tiêu} phút hôm nay để bắt đầu lại |
 | MSG-29 | Card **SCR-11** | Bạn đã hoàn thành {trình độ}! \[Làm bài kiểm tra\] \[Học {trình độ tiếp}\] |
 | MSG-30 | Card **SCR-11** | Bạn đã hoàn thành toàn bộ lộ trình hiện có. Tiếp tục ôn tập để giữ vốn từ nhé |
-
-Bản EN: `[chờ bổ sung]`.
 
 ## 10. Yêu cầu phi chức năng
 

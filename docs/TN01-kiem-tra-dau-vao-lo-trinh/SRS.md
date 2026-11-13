@@ -13,7 +13,6 @@
 | Phạm vi | Onboarding, bài kiểm tra đầu vào, kết quả, mục tiêu ngày, màn lộ trình, làm lại kiểm tra |
 | Ngoài phạm vi | Kiểm tra nói và viết, lộ trình theo ngành, chứng nhận |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -296,8 +295,6 @@ sequenceDiagram
 | MSG-06 | Popup | Kết quả lần này là {trình độ mới}, thấp hơn trình độ hiện tại. Bạn muốn học lại từ {trình độ mới}? Tiến độ đã học vẫn được giữ. \[Giữ {trình độ cũ}\] \[Học từ {trình độ mới}\] |
 | MSG-07 | Toast | Hoàn thành bài trước để mở bài này |
 | MSG-08 | Popup | Bạn có thể làm lại bài kiểm tra từ ngày {dd/mm/yyyy} |
-
-Bản EN: `[chờ bổ sung]`.
 
 ## 10. Yêu cầu phi chức năng
 
