@@ -13,7 +13,6 @@
 | Phạm vi | Lịch ôn, phiên ôn tập, chuỗi ngày học, ngày bảo lưu, nhắc học |
 | Ngoài phạm vi | Bảng xếp hạng, mua bảo lưu, nhắc qua email, SMS |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -352,8 +351,6 @@ sequenceDiagram
 | MSG-24 | Popup khi mở app | Chuỗi ngày học đã bắt đầu lại. Kỷ lục của bạn là {n} ngày, hãy bắt đầu chuỗi mới hôm nay |
 | MSG-25 | Banner **SCR-10** | Thông báo đang tắt nên app chưa nhắc bạn được. \[Mở Cài đặt\] |
 | MSG-26 | Thông báo đẩy | {Còn {x} phút để đạt mục tiêu / Có {n} từ đang chờ ôn}. Giữ chuỗi {n} ngày nhé! |
-
-Bản EN: `[chờ bổ sung]`.
 
 ## 10. Yêu cầu phi chức năng
 

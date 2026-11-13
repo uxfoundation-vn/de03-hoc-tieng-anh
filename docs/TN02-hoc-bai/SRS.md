@@ -13,7 +13,6 @@
 | Phạm vi | Tải bài, 6 dạng bài tập, chấm, phản hồi, hỏi lại, tạm tắt nói và nghe, thoát và học tiếp, màn kết thúc |
 | Ngoài phạm vi | Chấm phát âm chi tiết, hội thoại AI, giới hạn số lần sai |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -332,8 +331,6 @@ sequenceDiagram
 | MSG-16 | Popup | Bài nói cần micro để chấm phát âm của bạn. Âm thanh chỉ dùng để chấm, không lưu lại. \[Tiếp tục\] \[Để sau\] |
 | MSG-17 | Toast | Cảm ơn bạn đã báo lỗi, chúng tôi sẽ kiểm tra |
 | MSG-18 | Banner **SCR-07** | Đang ngoại tuyến. Kết quả sẽ được lưu khi có mạng |
-
-Bản EN: `[chờ bổ sung]`.
 
 ## 10. Yêu cầu phi chức năng
 
