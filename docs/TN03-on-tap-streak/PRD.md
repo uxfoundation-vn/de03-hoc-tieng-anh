@@ -1,8 +1,6 @@
-> **Mã:** DE03-TN03-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE03-TN03-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Ôn tập và chuỗi ngày học (App học tiếng Anh)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -22,9 +20,9 @@ Học từ mới ở [TN02](../TN02-hoc-bai/PRD.md) chỉ có ích khi người 
 
 ### 1.3 Mục tiêu
 
-- Tỉ lệ giữ chân ngày 7 ≥ 35%, ngày 30 ≥ 15% `[giả định]`.
-- ≥ 50% người học hoạt động ôn tập ít nhất 3 ngày mỗi tuần `[giả định]`.
-- Tỉ lệ tắt thông báo nhắc học ≤ 10% `[giả định]`.
+- Tỉ lệ giữ chân ngày 7 ≥ 35%, ngày 30 ≥ 15%.
+- ≥ 50% người học hoạt động ôn tập ít nhất 3 ngày mỗi tuần.
+- Tỉ lệ tắt thông báo nhắc học ≤ 10%.
 
 ## 2. Người dùng
 
@@ -71,7 +69,7 @@ Người học luôn thấy hôm nay cần ôn bao nhiêu từ, chuỗi hiện t
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Khoảng ôn | 1, 3, 7, 14, 30, 60 ngày; đúng thì lên mức, sai thì về mức 1 |
 | Từ "đã thuộc" | Đạt mức 60 ngày và trả lời đúng |
@@ -170,7 +168,7 @@ AC04: Chạm thông báo mở thẳng phiên ôn tập nếu có từ cần ôn,
 
 AC05: Quyền thông báo bị tắt → màn cài đặt nhắc học nói rõ và có nút mở Cài đặt hệ thống.
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |

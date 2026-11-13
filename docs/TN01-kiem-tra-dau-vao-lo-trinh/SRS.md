@@ -1,8 +1,8 @@
-> **Mã:** DE03-TN01-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE03-TN01-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE03-01 - Kiểm tra đầu vào và lộ trình
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. Màn bài học xem [SRS TN02](../TN02-hoc-bai/SRS.md); nhắc học xem [SRS TN03](../TN03-on-tap-streak/SRS.md).
+> Màn bài học xem [SRS TN02](../TN02-hoc-bai/SRS.md); nhắc học xem [SRS TN03](../TN03-on-tap-streak/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người học · Hệ thống (app) · Máy chủ nội dung |
 | Phạm vi | Onboarding, bài kiểm tra đầu vào, kết quả, mục tiêu ngày, màn lộ trình, làm lại kiểm tra |
 | Ngoài phạm vi | Kiểm tra nói và viết, lộ trình theo ngành, chứng nhận |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -28,16 +28,16 @@
 
 | **Mã** | **Quy tắc** |
 | --- | --- |
-| BR-01 | **Trình độ** gồm A1, A2, B1, B2. Mỗi trình độ gồm nhiều chặng, mỗi chặng 5–8 bài học `[giả định]` |
+| BR-01 | **Trình độ** gồm A1, A2, B1, B2. Mỗi trình độ gồm nhiều chặng, mỗi chặng 5–8 bài học |
 | BR-02 | Chọn "Tôi mới bắt đầu" → xếp A1, không làm kiểm tra |
-| BR-03 | **Bài kiểm tra thích ứng**: bắt đầu bằng câu A2. Trả lời đúng 2 câu liên tiếp → lên một bậc; sai 2 câu liên tiếp → xuống một bậc; sau mỗi lần đổi bậc, bộ đếm liên tiếp tính lại từ 0. Tối đa 20 câu `[giả định]`. **Hết 20 câu mà chưa dừng sớm** → xếp ở bậc cao nhất có ít nhất 2 câu đã trả lời và tỉ lệ đúng ở bậc đó ≥ 50%; không bậc nào đạt → xếp A1 `[giả định]` |
-| BR-04 | **Dừng sớm**, kiểm tra sau mỗi câu, điều kiện nào đạt trước thì áp dụng `[giả định]`: (a) **chạm trần**: đang ở B2 và đúng 2 câu liên tiếp → kết thúc, xếp B2; (b) **chạm sàn**: đang ở A1 và sai 2 câu liên tiếp → kết thúc, xếp A1; (c) **dao động giữa hai bậc**: từ câu thứ 8, bậc đã đổi chiều (lên rồi xuống, hoặc xuống rồi lên) từ 2 lần trở lên giữa hai bậc liền kề → kết thúc, xếp ở bậc thấp hơn trong hai bậc; (d) **đứng yên một bậc**: từ câu thứ 8, 6 câu gần nhất cùng một bậc mà không lên, không xuống (đúng sai xen kẽ) → kết thúc, xếp ở bậc đó. Người rất giỏi kết thúc sau 6 câu, người mới kết thúc sau 4 câu |
+| BR-03 | **Bài kiểm tra thích ứng**: bắt đầu bằng câu A2. Trả lời đúng 2 câu liên tiếp → lên một bậc; sai 2 câu liên tiếp → xuống một bậc; sau mỗi lần đổi bậc, bộ đếm liên tiếp tính lại từ 0. Tối đa 20 câu. **Hết 20 câu mà chưa dừng sớm** → xếp ở bậc cao nhất có ít nhất 2 câu đã trả lời và tỉ lệ đúng ở bậc đó ≥ 50%; không bậc nào đạt → xếp A1 |
+| BR-04 | **Dừng sớm**, kiểm tra sau mỗi câu, điều kiện nào đạt trước thì áp dụng: (a) **chạm trần**: đang ở B2 và đúng 2 câu liên tiếp → kết thúc, xếp B2; (b) **chạm sàn**: đang ở A1 và sai 2 câu liên tiếp → kết thúc, xếp A1; (c) **dao động giữa hai bậc**: từ câu thứ 8, bậc đã đổi chiều (lên rồi xuống, hoặc xuống rồi lên) từ 2 lần trở lên giữa hai bậc liền kề → kết thúc, xếp ở bậc thấp hơn trong hai bậc; (d) **đứng yên một bậc**: từ câu thứ 8, 6 câu gần nhất cùng một bậc mà không lên, không xuống (đúng sai xen kẽ) → kết thúc, xếp ở bậc đó. Người rất giỏi kết thúc sau 6 câu, người mới kết thúc sau 4 câu |
 | BR-05 | "Tôi không biết" tính là sai. Câu nghe bị bỏ qua vì lỗi âm thanh không tính vào kết quả và được thay bằng câu khác cùng bậc |
 | BR-06 | **Bỏ dở**: lưu tiến trình 24 giờ; quay lại trong thời gian này được hỏi làm tiếp hay làm lại (MSG-03). Quá 24 giờ thì bắt đầu lại |
 | BR-07 | **Kết quả**: trình độ xếp được; cho chọn "Bắt đầu thấp hơn một bậc" (không áp dụng khi kết quả là A1) |
 | BR-08 | **Mục tiêu ngày**: 5, 10, 15, 20 phút; mặc định 10; đổi được trong Hồ sơ, áp dụng từ ngày hôm sau |
 | BR-09 | **Mở khoá**: trong một chặng, hoàn thành bài trước thì mở bài sau. Chặng thuộc trình độ thấp hơn trình độ xếp được đánh dấu `DA_VUOT_QUA` và vẫn vào học được. Chặng cao hơn bị khoá cho tới khi xong chặng trước |
-| BR-10 | **Làm lại kiểm tra**: tối đa 1 lần mỗi 30 ngày. Trình độ mới cao hơn → mở khoá chặng tương ứng; thấp hơn → hỏi xác nhận trước khi áp dụng; tiến độ đã học luôn được giữ `[giả định]` |
+| BR-10 | **Làm lại kiểm tra**: tối đa 1 lần mỗi 30 ngày. Trình độ mới cao hơn → mở khoá chặng tương ứng; thấp hơn → hỏi xác nhận trước khi áp dụng; tiến độ đã học luôn được giữ |
 
 ## 4. Trạng thái
 
@@ -129,7 +129,7 @@ flowchart TD
 | A2 | Chọn "Bắt đầu thấp hơn một bậc" | Hạ một bậc trước khi lưu (BR-07) |
 | A3 | Thoát giữa bài kiểm tra | MSG-02; xác nhận thì lưu tiến trình (BR-06), về **SCR-01** |
 | A4 | Quay lại trong 24 giờ | MSG-03: "Làm tiếp" hoặc "Làm lại từ đầu" |
-| A5 | Chọn "Để sau" ở bước tạo tài khoản | Lưu hồ sơ tạm trên máy, giữ **2 năm** kể từ lần mở app cuối; không giới hạn số bài học `[giả định]`; nhắc tạo tài khoản sau bài học đầu tiên |
+| A5 | Chọn "Để sau" ở bước tạo tài khoản | Lưu hồ sơ tạm trên máy, giữ **2 năm** kể từ lần mở app cuối; không giới hạn số bài học; nhắc tạo tài khoản sau bài học đầu tiên |
 | A6 | Từ chối quyền thông báo | Tiếp tục bình thường; nhắc học tắt |
 
 **Luồng lỗi**
@@ -241,7 +241,7 @@ flowchart TD
 
 ## 8. API
 
-| **API** | **Request chính** | **Response chính** | **Timeout / retry** `[giả định]` |
+| **API** | **Request chính** | **Response chính** | **Timeout / retry** |
 | --- | --- | --- | --- |
 | \[PlacementStart\] | reason | test_id, bộ câu hỏi đủ cho mọi nhánh, link âm thanh | 8s / 2 lần |
 | \[PlacementSubmit\] | test_id, danh sách câu trả lời | level, mô tả, lộ trình đề xuất | 8s / tự gửi lại khi có mạng |
@@ -298,7 +298,7 @@ sequenceDiagram
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | Tải bộ câu hỏi ≤ 3 giây trên 4G; chuyển câu ≤ 200 ms |
 | Offline | Bài kiểm tra chạy được khi mất mạng sau khi đã tải; lộ trình có bản lưu để xem ngoại tuyến |

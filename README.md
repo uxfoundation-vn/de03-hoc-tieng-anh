@@ -1,6 +1,6 @@
 # Đề 3 · App học tiếng Anh
 
-> **Mã:** DE03 · **Độ khó:** 3/8 · **Vai trò:** 1 (người học) · **Nền tảng:** App iOS / Android `[giả định]`
+> **Mã:** DE03 · **Độ khó:** 3/8 · **Vai trò:** 1 (người học) · **Nền tảng:** App iOS / Android
 
 App giúp người Việt tự học tiếng Anh bằng các bài ngắn mỗi ngày: kiểm tra đầu vào để xếp trình độ, học theo lộ trình, ôn lại từ sắp quên và theo dõi tiến độ. Đề gồm 4 tính năng; mỗi tính năng có 1 PRD và 1 SRS riêng.
 
@@ -68,10 +68,9 @@ Ngoài phạm vi cả đề: lớp học trực tuyến với giáo viên, luy�
 ## Quy ước dùng chung
 
 - Trình độ theo khung CEFR rút gọn: A1, A2, B1, B2.
-- Đăng ký, đăng nhập dùng luồng tài khoản chuẩn (email, Google, Apple), không mô tả trong bộ tài liệu này. Cho học thử không cần tài khoản đến hết bài kiểm tra đầu vào `[giả định]`.
+- Đăng ký, đăng nhập dùng luồng tài khoản chuẩn (email, Google, Apple), không mô tả trong bộ tài liệu này. Cho học thử không cần tài khoản đến hết bài kiểm tra đầu vào.
 - Mã BR, MSG, UC đánh số liên tục trong cả đề: TN01 dùng BR-01–10, MSG-01–08; TN02 dùng BR-11–22, MSG-09–18; TN03 dùng BR-23–32, MSG-19–26; TN04 dùng BR-33–39, MSG-27–30.
 - Điều hướng: tab bar Học (lộ trình) · Ôn tập · Tiến độ · Hồ sơ.
-- Giá trị đánh dấu `[giả định]` dùng để dựng flow, cần PO hoặc BA xác nhận trước khi dùng.
 
 ## Danh sách màn hình
 

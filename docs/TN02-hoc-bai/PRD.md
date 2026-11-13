@@ -1,8 +1,6 @@
-> **Mã:** DE03-TN02-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE03-TN02-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Học bài (App học tiếng Anh)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -22,8 +20,8 @@ Sau onboarding ([TN01](../TN01-kiem-tra-dau-vao-lo-trinh/PRD.md)), người họ
 
 ### 1.3 Mục tiêu
 
-- Một bài học hoàn thành trong 3–5 phút `[giả định]`.
-- Tỉ lệ hoàn thành bài đã bắt đầu ≥ 85% `[giả định]`.
+- Một bài học hoàn thành trong 3–5 phút.
+- Tỉ lệ hoàn thành bài đã bắt đầu ≥ 85%.
 - Mỗi lỗi sai đều có giải thích ngắn bằng tiếng Việt.
 
 ## 2. Người dùng
@@ -73,7 +71,7 @@ Thoát giữa bài, mất mạng hay có cuộc gọi đến đều không làm 
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Độ dài bài | 10–15 bài tập, 3–5 phút |
 | Dạng bài | Thẻ từ mới, chọn nghĩa, ghép cặp, sắp xếp câu, nghe và chọn, nói lặp lại |
@@ -123,7 +121,7 @@ AC01: Bài bắt đầu bằng thẻ từ mới; mỗi thẻ có nút nghe phát
 
 AC02: Thanh tiến trình hiện số câu đã làm trên tổng; câu hỏi lại làm tổng tăng thêm.
 
-AC03: Không có hai câu liên tiếp cùng dạng nếu bài còn dạng khác `[giả định]`.
+AC03: Không có hai câu liên tiếp cùng dạng nếu bài còn dạng khác.
 
 AC04: Nút Kiểm tra chỉ bật khi đã chọn hoặc nhập câu trả lời.
 
@@ -175,7 +173,7 @@ AC03: Bài tiếp theo được mở khoá; có nút "Học bài tiếp" và "V�
 
 AC04: Học lại bài đã hoàn thành vẫn tính thời gian học và ôn từ, không đổi thứ tự mở khoá.
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |

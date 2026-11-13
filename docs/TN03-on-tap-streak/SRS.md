@@ -1,8 +1,8 @@
-> **Mã:** DE03-TN03-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE03-TN03-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE03-03 - Ôn tập và chuỗi ngày học
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. Dạng bài tập dùng lại từ [SRS TN02](../TN02-hoc-bai/SRS.md); sổ từ vựng xem [SRS TN04](../TN04-theo-doi-tien-do/SRS.md).
+> Dạng bài tập dùng lại từ [SRS TN02](../TN02-hoc-bai/SRS.md); sổ từ vựng xem [SRS TN04](../TN04-theo-doi-tien-do/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người học · Hệ thống (app) · Máy chủ · Dịch vụ thông báo đẩy |
 | Phạm vi | Lịch ôn, phiên ôn tập, chuỗi ngày học, ngày bảo lưu, nhắc học |
 | Ngoài phạm vi | Bảng xếp hạng, mua bảo lưu, nhắc qua email, SMS |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -28,15 +28,15 @@
 
 | **Mã** | **Quy tắc** |
 | --- | --- |
-| BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày `[giả định]`. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau. **Điều chỉnh theo độ khó**: mỗi từ có hệ số `ease` bắt đầu 1,0; mỗi lần sai ở lần trả lời đầu giảm 0,2 (tối thiểu 0,6); đúng ngay 3 lần liên tiếp tăng 0,1 (tối đa 1,3). Khoảng ôn thực tế = khoảng theo mức × `ease`, làm tròn ngày, tối thiểu 1 ngày `[giả định]`. **Từ "Đã biết"** (người học tự đánh dấu ở thẻ từ hoặc sổ từ): `known = true`, không vào phiên ôn; bỏ đánh dấu thì từ quay lại mức 0, đến hạn ngày mai |
+| BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau. **Điều chỉnh theo độ khó**: mỗi từ có hệ số `ease` bắt đầu 1,0; mỗi lần sai ở lần trả lời đầu giảm 0,2 (tối thiểu 0,6); đúng ngay 3 lần liên tiếp tăng 0,1 (tối đa 1,3). Khoảng ôn thực tế = khoảng theo mức × `ease`, làm tròn ngày, tối thiểu 1 ngày. **Từ "Đã biết"** (người học tự đánh dấu ở thẻ từ hoặc sổ từ): `known = true`, không vào phiên ôn; bỏ đánh dấu thì từ quay lại mức 0, đến hạn ngày mai |
 | BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới (đã nhân `ease`, BR-23); sai → về mức 1 (đang ở mức 0 thì giữ mức 0), đến hạn ngày mai, và hỏi lại cuối phiên. Mức ôn chỉ tính theo **lần trả lời đầu tiên** của từ trong phiên: trả lời đúng ở lần hỏi lại cuối phiên không lên mức và không đổi đến hạn. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
 | BR-25 | **Từ cần ôn hôm nay** = từ có đến hạn ≤ hôm nay và không "Đã biết" (BR-23). **Phiên ôn** lấy tối đa 20 từ, ưu tiên từ quá hạn lâu nhất, sau đó mức thấp hơn trước |
 | BR-26 | **Dạng bài ôn**: chọn ngẫu nhiên trong `CHON_NGHIA`, `NGHE_CHON`, điền từ còn thiếu; áp dụng tạm tắt nghe của BR-18 |
 | BR-27 | **Đạt mục tiêu ngày** khi tổng thời gian học (bài học + ôn tập, BR-21) trong ngày ≥ mục tiêu ngày. Ngày tính theo múi giờ thiết bị, từ 00:00 đến 23:59 |
 | BR-28 | **Chuỗi**: đạt mục tiêu ngày thì chuỗi +1 (tối đa 1 lần mỗi ngày). Lưu chuỗi hiện tại và chuỗi dài nhất |
-| BR-29 | **Ngày bảo lưu**: được 1 ngày khi chuỗi chạm mỗi bội số của 7; giữ tối đa 2 `[giả định]` |
-| BR-30 | **Chốt ngày** lúc 00:00: hôm qua chưa đạt mục tiêu → còn bảo lưu thì trừ 1, chuỗi giữ nguyên, ngày đó ghi "Đã bảo lưu"; hết bảo lưu thì chuỗi về 0. Lỡ nhiều ngày liền thì dùng bảo lưu cho từng ngày cho tới khi hết. **Mở lại ngày đã chốt**: kết quả học ngoại tuyến mang thời điểm học thuộc ngày đã chốt, gửi lên trong vòng 72 giờ sau khi ngày đó kết thúc `[giả định]`, được cộng vào ngày đó. Nếu nhờ vậy ngày đó đạt mục tiêu thì ngày chuyển `DAT_MUC_TIEU` và chuỗi được tính lại từ ngày đó: hoàn bảo lưu đã trừ, hoặc khôi phục chuỗi đã về 0 rồi cộng tiếp các ngày đạt sau đó. Quá 72 giờ → chỉ cộng thời gian vào thống kê, không đổi chuỗi. Thời điểm học ở tương lai so với giờ máy chủ bị từ chối |
-| BR-31 | **Nhắc học**: tối đa 1 lần mỗi ngày vào giờ đã chọn (mặc định 20:00); không gửi nếu hôm đó đã đạt mục tiêu; gửi theo lịch cục bộ trên máy, huỷ ngay khi đạt mục tiêu `[giả định]` |
+| BR-29 | **Ngày bảo lưu**: được 1 ngày khi chuỗi chạm mỗi bội số của 7; giữ tối đa 2 |
+| BR-30 | **Chốt ngày** lúc 00:00: hôm qua chưa đạt mục tiêu → còn bảo lưu thì trừ 1, chuỗi giữ nguyên, ngày đó ghi "Đã bảo lưu"; hết bảo lưu thì chuỗi về 0. Lỡ nhiều ngày liền thì dùng bảo lưu cho từng ngày cho tới khi hết. **Mở lại ngày đã chốt**: kết quả học ngoại tuyến mang thời điểm học thuộc ngày đã chốt, gửi lên trong vòng 72 giờ sau khi ngày đó kết thúc, được cộng vào ngày đó. Nếu nhờ vậy ngày đó đạt mục tiêu thì ngày chuyển `DAT_MUC_TIEU` và chuỗi được tính lại từ ngày đó: hoàn bảo lưu đã trừ, hoặc khôi phục chuỗi đã về 0 rồi cộng tiếp các ngày đạt sau đó. Quá 72 giờ → chỉ cộng thời gian vào thống kê, không đổi chuỗi. Thời điểm học ở tương lai so với giờ máy chủ bị từ chối |
+| BR-31 | **Nhắc học**: tối đa 1 lần mỗi ngày vào giờ đã chọn (mặc định 20:00); không gửi nếu hôm đó đã đạt mục tiêu; gửi theo lịch cục bộ trên máy, huỷ ngay khi đạt mục tiêu |
 | BR-32 | **Đổi múi giờ**: ngày đang diễn ra giữ theo múi giờ cũ đến hết ngày; từ ngày hôm sau theo múi giờ mới |
 
 ## 4. Trạng thái
@@ -293,7 +293,7 @@ flowchart TD
 
 ## 8. API
 
-| **API** | **Request chính** | **Response chính** | **Timeout / retry** `[giả định]` |
+| **API** | **Request chính** | **Response chính** | **Timeout / retry** |
 | --- | --- | --- | --- |
 | \[ReviewQueueGet\] | profile_id, ngày | Từ đến hạn, mức ôn, nội dung bài ôn | 5s / 1 lần; cache cho ngoại tuyến |
 | \[ReviewSubmit\] | Kết quả từng từ (lần trả lời đầu và lần hỏi lại), thời gian ôn, thời điểm học | Mức ôn mới, đến hạn mới, tiến độ ngày, chuỗi | 5s / gửi lại khi có mạng |
@@ -354,7 +354,7 @@ sequenceDiagram
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | **SCR-08** tải ≤ 2 giây; cập nhật chuỗi hiện ngay ở **SCR-07** (≤ 500 ms sau khi gửi kết quả) |
 | Đồng bộ | Chuỗi tính trên máy chủ là nguồn đúng; app hiện số tạm khi ngoại tuyến và đồng bộ lại khi có mạng |
