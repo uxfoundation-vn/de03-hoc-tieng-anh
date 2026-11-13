@@ -199,7 +199,7 @@ AC02: Trình độ mới cao hơn → mở khoá các chặng tương ứng; kh�
 
 > Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
-- Hồ sơ tạm (chưa có tài khoản) được giữ bao lâu, và có giới hạn số bài học không?
+- Hồ sơ tạm (chưa có tài khoản) được giữ bao lâu, và có giới hạn số bài học không? → **Đã chốt:** Giữ 2 năm trên máy, không giới hạn số bài học.
 - Có cho người học tự chọn trình độ mà không cần kiểm tra không?
-- Lý do học có làm thay đổi nội dung lộ trình ở MVP không, hay chỉ ghi nhận?
+- Lý do học có làm thay đổi nội dung lộ trình ở MVP không, hay chỉ ghi nhận? → **Đã chốt:** Không. Chỉ ghi nhận ở MVP.
 - Khoảng cách làm lại kiểm tra 30 ngày có phù hợp không?

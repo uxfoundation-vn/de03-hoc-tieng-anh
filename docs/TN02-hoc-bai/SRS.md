@@ -30,7 +30,7 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-11 | **Bài học** gồm 2–4 thẻ từ mới và 10–15 bài tập; toàn bộ nội dung và âm thanh tải trước khi bắt đầu `[giả định]` |
-| BR-12 | **Dạng bài**: `THE_TU` (thẻ từ mới, không chấm), `CHON_NGHIA`, `GHEP_CAP` (4–5 cặp), `SAP_XEP_CAU`, `NGHE_CHON`, `NOI_LAP_LAI` |
+| BR-12 | **Dạng bài**: `THE_TU` (thẻ từ mới, không chấm; có nút "Tôi đã biết từ này": bỏ qua thẻ, từ vào sổ từ với nhãn "Đã biết" và không vào lịch ôn, xem TN03 BR-23), `CHON_NGHIA`, `GHEP_CAP` (4–5 cặp), `SAP_XEP_CAU`, `NGHE_CHON`, `NOI_LAP_LAI` |
 | BR-13 | **Thứ tự**: theo nội dung bài; không xếp 2 bài tập cùng dạng liền nhau khi còn dạng khác |
 | BR-14 | **Chấm**: `CHON_NGHIA`, `NGHE_CHON` so khớp đáp án; `GHEP_CAP` đạt khi ghép đúng hết, sai từng cặp thì cặp đó rung và trả lại; `SAP_XEP_CAU` so khớp câu, chấp nhận các đáp án tương đương do nội dung khai báo |
 | BR-15 | **Chấm nói**: chuyển giọng nói thành chữ, đạt khi khớp ≥ 70% số từ của câu mẫu (bỏ dấu câu, không phân biệt hoa thường). Tối đa 3 lần thử mỗi câu; lần 3 chưa đạt thì cho "Tiếp tục" và không tính sai `[giả định]` |
@@ -246,7 +246,7 @@ flowchart TD
 | 1 | Nút thoát | Icon ✕ | MSG-15 |
 | 2 | Thanh tiến trình | Progress | Câu đã xong / tổng câu, gồm cả câu hỏi lại |
 | 3 | Đề bài | Text | Hướng dẫn ngắn bằng tiếng Việt theo dạng bài |
-| 4 | Vùng nội dung | Theo dạng | `THE_TU`: từ, phiên âm, nghĩa, ví dụ, nút nghe · `CHON_NGHIA`: từ hoặc câu + 4 đáp án · `GHEP_CAP`: 2 cột chạm để ghép · `SAP_XEP_CAU`: các thẻ từ chạm để xếp, chạm lại để gỡ · `NGHE_CHON`: nút phát, nút phát chậm, 4 đáp án · `NOI_LAP_LAI`: câu mẫu, nút nghe mẫu, nút micro giữ để nói |
+| 4 | Vùng nội dung | Theo dạng | `THE_TU`: từ, phiên âm, nghĩa, ví dụ, nút nghe, nút "Tôi đã biết từ này" (BR-12) · `CHON_NGHIA`: từ hoặc câu + 4 đáp án · `GHEP_CAP`: 2 cột chạm để ghép · `SAP_XEP_CAU`: các thẻ từ chạm để xếp, chạm lại để gỡ · `NGHE_CHON`: nút phát, nút phát chậm, 4 đáp án · `NOI_LAP_LAI`: câu mẫu, nút nghe mẫu, nút micro giữ để nói |
 | 5 | "Không tiện nói / nghe lúc này" | Button text | Chỉ ở `NOI_LAP_LAI`, `NGHE_CHON` |
 | 6 | Nút Kiểm tra | Button | Disabled khi `CHUA_TRA_LOI`; ở `THE_TU` là nút Tiếp |
 

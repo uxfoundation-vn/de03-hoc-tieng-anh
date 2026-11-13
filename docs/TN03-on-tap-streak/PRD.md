@@ -195,6 +195,6 @@ AC05: Quyền thông báo bị tắt → màn cài đặt nhắc học nói rõ 
 > Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
 - Có cho người học tự sửa (khôi phục) chuỗi trong 24 giờ không?
-- Khoảng ôn có nên điều chỉnh theo độ khó của từ không?
+- Khoảng ôn có nên điều chỉnh theo độ khó của từ không? → **Đã chốt:** Có. Mỗi từ có hệ số độ khó nhân vào khoảng ôn (SRS BR-23).
 - Ôn tập có tính là đạt mục tiêu ngày nếu không học bài mới?
 - Có thêm lần nhắc thứ hai trước khi hết ngày khi chuỗi sắp mất?

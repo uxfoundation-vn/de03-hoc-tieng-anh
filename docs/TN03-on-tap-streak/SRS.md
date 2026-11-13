@@ -29,9 +29,9 @@
 
 | **Mã** | **Quy tắc** |
 | --- | --- |
-| BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày `[giả định]`. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau |
-| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới; sai → về mức 1 (đang ở mức 0 thì giữ mức 0), đến hạn ngày mai, và hỏi lại cuối phiên. Mức ôn chỉ tính theo **lần trả lời đầu tiên** của từ trong phiên: trả lời đúng ở lần hỏi lại cuối phiên không lên mức và không đổi đến hạn. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
-| BR-25 | **Từ cần ôn hôm nay** = từ có đến hạn ≤ hôm nay. **Phiên ôn** lấy tối đa 20 từ, ưu tiên từ quá hạn lâu nhất, sau đó mức thấp hơn trước |
+| BR-23 | **Mức ôn** của mỗi từ: 0 (mới học) đến 6. Khoảng ôn theo mức: 1, 1, 3, 7, 14, 30, 60 ngày `[giả định]`. Từ mới học ở TN02 vào mức 0, đến hạn ngày hôm sau. **Điều chỉnh theo độ khó**: mỗi từ có hệ số `ease` bắt đầu 1,0; mỗi lần sai ở lần trả lời đầu giảm 0,2 (tối thiểu 0,6); đúng ngay 3 lần liên tiếp tăng 0,1 (tối đa 1,3). Khoảng ôn thực tế = khoảng theo mức × `ease`, làm tròn ngày, tối thiểu 1 ngày `[giả định]`. **Từ "Đã biết"** (người học tự đánh dấu ở thẻ từ hoặc sổ từ): `known = true`, không vào phiên ôn; bỏ đánh dấu thì từ quay lại mức 0, đến hạn ngày mai |
+| BR-24 | **Cập nhật sau mỗi lần ôn**: đúng → lên 1 mức, đến hạn = hôm nay + khoảng của mức mới (đã nhân `ease`, BR-23); sai → về mức 1 (đang ở mức 0 thì giữ mức 0), đến hạn ngày mai, và hỏi lại cuối phiên. Mức ôn chỉ tính theo **lần trả lời đầu tiên** của từ trong phiên: trả lời đúng ở lần hỏi lại cuối phiên không lên mức và không đổi đến hạn. Đúng ở mức 6 → đánh dấu "Đã thuộc", vẫn ôn mỗi 60 ngày |
+| BR-25 | **Từ cần ôn hôm nay** = từ có đến hạn ≤ hôm nay và không "Đã biết" (BR-23). **Phiên ôn** lấy tối đa 20 từ, ưu tiên từ quá hạn lâu nhất, sau đó mức thấp hơn trước |
 | BR-26 | **Dạng bài ôn**: chọn ngẫu nhiên trong `CHON_NGHIA`, `NGHE_CHON`, điền từ còn thiếu; áp dụng tạm tắt nghe của BR-18 |
 | BR-27 | **Đạt mục tiêu ngày** khi tổng thời gian học (bài học + ôn tập, BR-21) trong ngày ≥ mục tiêu ngày. Ngày tính theo múi giờ thiết bị, từ 00:00 đến 23:59 |
 | BR-28 | **Chuỗi**: đạt mục tiêu ngày thì chuỗi +1 (tối đa 1 lần mỗi ngày). Lưu chuỗi hiện tại và chuỗi dài nhất |
@@ -327,7 +327,7 @@ sequenceDiagram
 
 | **Đối tượng** | **Trường** |
 | --- | --- |
-| ReviewItem | word_id, profile_id, level (0–6), due_date, last_result, mastered |
+| ReviewItem | word_id, profile_id, level (0–6), ease (0,6–1,3), due_date, last_result, mastered, known |
 | DailyProgress | profile_id, date, minutes, goal_minutes, status |
 | Streak | profile_id, current, longest, freezes (0–2), timezone |
 

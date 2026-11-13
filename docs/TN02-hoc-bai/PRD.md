@@ -202,5 +202,5 @@ AC04: Học lại bài đã hoàn thành vẫn tính thời gian học và ôn t
 
 - Có giới hạn số lần sai (cơ chế "trái tim") để tăng tập trung không?
 - Câu hỏi lại có đếm vào độ chính xác không, hay chỉ độ chính xác lần đầu?
-- Bài nói có cần lưu bản ghi âm để người học nghe lại?
-- Có cho bỏ qua thẻ từ mới khi đã biết từ đó?
+- Bài nói có cần lưu bản ghi âm để người học nghe lại? → **Đã chốt:** Không lưu. Bản ghi chỉ dùng để nhận dạng rồi bỏ (SRS mục 10).
+- Có cho bỏ qua thẻ từ mới khi đã biết từ đó? → **Đã chốt:** Có. Nút "Tôi đã biết từ này" bỏ qua thẻ và đánh dấu từ là Đã biết.

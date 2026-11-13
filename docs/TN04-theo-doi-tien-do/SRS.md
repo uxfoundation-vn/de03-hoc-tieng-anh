@@ -31,10 +31,10 @@
 | BR-33 | **Tuần** từ thứ Hai 00:00 đến Chủ Nhật 23:59 theo múi giờ đã lưu (BR-32). Mặc định tuần hiện tại; xem lùi tới tuần có hoạt động đầu tiên |
 | BR-34 | **Số liệu tuần** lấy từ DailyProgress (BR-27): tổng phút, số bài hoàn thành (kể cả học lại), số từ mới học trong tuần, số từ chuyển "Đã thuộc" trong tuần. **Tích luỹ**: tổng từ trước tới nay |
 | BR-35 | **So tuần trước**: chênh lệch phút = tuần này − tuần trước. Tuần hiện tại so với cả tuần trước, kèm ghi chú "Tuần chưa kết thúc". Tuần trước không có hoạt động → không so |
-| BR-36 | **Mức nhớ hiển thị** từ mức ôn (BR-23): mức 0–1 "Mới học", 2–4 "Đang nhớ", 5–6 chưa `mastered` "Nhớ tốt", `mastered` "Đã thuộc". Từ lên mức 6 nhưng chưa trả lời đúng ở mức 6 (BR-24) vẫn là "Nhớ tốt" |
+| BR-36 | **Mức nhớ hiển thị** từ mức ôn (BR-23): mức 0–1 "Mới học", 2–4 "Đang nhớ", 5–6 chưa `mastered` "Nhớ tốt", `mastered` "Đã thuộc"; từ `known` hiện "Đã biết" (tự đánh dấu, không ôn). Từ lên mức 6 nhưng chưa trả lời đúng ở mức 6 (BR-24) vẫn là "Nhớ tốt" |
 | BR-37 | **Tiến độ trình độ** = chặng `DA_HOAN_THANH` / tổng chặng của trình độ hiện tại. Chặng hoàn thành khi mọi bài trong chặng `DA_HOAN_THANH` |
 | BR-38 | **Hoàn thành trình độ**: hiện gợi ý (MSG-29) với 2 lựa chọn: làm bài kiểm tra (bỏ qua giới hạn 30 ngày của BR-10) hoặc học tiếp trình độ kế tiếp. B2 là trình độ cao nhất ở MVP |
-| BR-39 | **Sổ từ**: mọi từ có ReviewItem; mặc định sắp mới học trước; sắp xếp khác: A–Z, cần ôn sớm nhất. Tìm theo từ hoặc nghĩa, bỏ dấu, không phân biệt hoa thường; tải 50 từ mỗi lần `[giả định]` |
+| BR-39 | **Sổ từ**: mọi từ có ReviewItem; mỗi từ có nút "Đánh dấu đã biết" / "Bỏ đánh dấu" (TN03 BR-23); mặc định sắp mới học trước; sắp xếp khác: A–Z, cần ôn sớm nhất. Tìm theo từ hoặc nghĩa, bỏ dấu, không phân biệt hoa thường; tải 50 từ mỗi lần `[giả định]` |
 
 ## 4. Trạng thái
 
@@ -181,10 +181,10 @@ flowchart TD
 | **#** | **Thành phần** | **Loại** | **Hành vi** |
 | --- | --- | --- | --- |
 | 1 | Ô tìm kiếm | Text | Placeholder "Tìm từ hoặc nghĩa" |
-| 2 | Lọc mức nhớ | Chips | Tất cả, Mới học, Đang nhớ, Nhớ tốt, Đã thuộc; mỗi chip kèm số lượng |
+| 2 | Lọc mức nhớ | Chips | Tất cả, Mới học, Đang nhớ, Nhớ tốt, Đã thuộc, Đã biết; mỗi chip kèm số lượng |
 | 3 | Sắp xếp | Menu | Mới học trước (mặc định), A–Z, Cần ôn sớm nhất |
 | 4 | Dòng từ | List item | Từ, nghĩa ngắn, nhãn mức nhớ, nút nghe |
-| 5 | Chi tiết từ | Bottom sheet | Từ, phiên âm, nút nghe, nghĩa, ví dụ, "Học ở bài: {tên bài}", mức nhớ, "Ôn tiếp: {ngày}", nút "Ôn từ này" |
+| 5 | Chi tiết từ | Bottom sheet | Từ, phiên âm, nút nghe, nghĩa, ví dụ, "Học ở bài: {tên bài}", mức nhớ, "Ôn tiếp: {ngày}", nút "Ôn từ này", nút "Đánh dấu đã biết" / "Bỏ đánh dấu" (BR-39) |
 | 6 | Màn trống | Empty state | "Từ bạn học sẽ được lưu ở đây. \[Học bài\]"; tìm không ra: "Không tìm thấy từ nào cho '{từ khoá}'" |
 
 ## 8. API
@@ -194,7 +194,8 @@ flowchart TD
 | \[ProgressWeekGet\] | profile_id, week_start | Phút mỗi ngày, mục tiêu ngày, bài hoàn thành, từ mới, từ đã thuộc, so tuần trước, tích luỹ | 5s / 1 lần; cache |
 | \[LevelProgressGet\] | profile_id | level, chặng đã xong, tổng chặng, level_completed | 5s / 1 lần |
 | \[VocabList\] | profile_id, filter, sort, keyword, cursor | Danh sách từ, mức nhớ, cursor tiếp | 5s / 1 lần |
-| \[VocabDetail\] | word_id | Từ, phiên âm, âm thanh, nghĩa, ví dụ, bài học, mức, đến hạn | 5s / 1 lần |
+| \[VocabDetail\] | word_id | Từ, phiên âm, âm thanh, nghĩa, ví dụ, bài học, mức, đến hạn, known | 5s / 1 lần |
+| \[VocabMarkKnown\] | word_id, known | ReviewItem cập nhật | 5s / 2 lần; theo TN03 BR-23 |
 | \[LevelAdvance\] | profile_id | Trình độ mới, chặng mở khoá | 5s / 2 lần |
 
 ```mermaid

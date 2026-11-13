@@ -130,7 +130,7 @@ flowchart TD
 | A2 | Chọn "Bắt đầu thấp hơn một bậc" | Hạ một bậc trước khi lưu (BR-07) |
 | A3 | Thoát giữa bài kiểm tra | MSG-02; xác nhận thì lưu tiến trình (BR-06), về **SCR-01** |
 | A4 | Quay lại trong 24 giờ | MSG-03: "Làm tiếp" hoặc "Làm lại từ đầu" |
-| A5 | Chọn "Để sau" ở bước tạo tài khoản | Lưu hồ sơ tạm trên máy; nhắc tạo tài khoản sau bài học đầu tiên |
+| A5 | Chọn "Để sau" ở bước tạo tài khoản | Lưu hồ sơ tạm trên máy, giữ **2 năm** kể từ lần mở app cuối; không giới hạn số bài học `[giả định]`; nhắc tạo tài khoản sau bài học đầu tiên |
 | A6 | Từ chối quyền thông báo | Tiếp tục bình thường; nhắc học tắt |
 
 **Luồng lỗi**
@@ -202,7 +202,7 @@ flowchart TD
 
 | **#** | **Thành phần** | **Loại** | **Bắt buộc** | **Validate / hành vi** |
 | --- | --- | --- | --- | --- |
-| 1 | Lý do học | Thẻ chọn 1 | Có | Giao tiếp hằng ngày, Công việc, Du lịch, Thi cử |
+| 1 | Lý do học | Thẻ chọn 1 | Có | Giao tiếp hằng ngày, Công việc, Du lịch, Thi cử; chỉ ghi nhận, không đổi nội dung lộ trình ở MVP |
 | 2 | Điểm xuất phát | Thẻ chọn 1 | Có | "Tôi mới bắt đầu" · "Kiểm tra trình độ (khoảng 5 phút)" |
 | 3 | Nút Tiếp tục | Button | – | Disabled đến khi chọn xong bước hiện tại |
 | 4 | Thanh bước | Progress | – | Vị trí trong onboarding |
@@ -306,7 +306,7 @@ Bản EN: `[chờ bổ sung]`.
 | Hiệu năng | Tải bộ câu hỏi ≤ 3 giây trên 4G; chuyển câu ≤ 200 ms |
 | Offline | Bài kiểm tra chạy được khi mất mạng sau khi đã tải; lộ trình có bản lưu để xem ngoại tuyến |
 | Âm thanh | Âm thanh câu nghe tải trước cùng bộ câu hỏi; tôn trọng chế độ im lặng, nhắc bật tiếng khi vào câu nghe |
-| Bảo mật | Hồ sơ tạm chỉ lưu trên máy; kết quả kiểm tra gắn với tài khoản sau khi đăng ký |
+| Bảo mật | Hồ sơ tạm chỉ lưu trên máy, tự xoá sau 2 năm không mở app; kết quả kiểm tra gắn với tài khoản sau khi đăng ký |
 | Log / audit | Mỗi lần làm bài kiểm tra: thời điểm, số câu, trình độ được xếp, lựa chọn hạ bậc; mỗi lần đổi mục tiêu ngày |
 | Tracking | Từng bước onboarding, chọn điểm xuất phát, số câu đã làm, thoát giữa chừng (ở câu nào), kết quả, hạ bậc, mục tiêu ngày, cấp quyền thông báo |
 | Accessibility | Đáp án có vùng chạm ≥ 44 pt; câu nghe có phương án bỏ qua; hỗ trợ cỡ chữ hệ thống; trạng thái bài học có biểu tượng và nhãn, không chỉ dựa vào màu |
